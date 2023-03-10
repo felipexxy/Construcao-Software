@@ -2,6 +2,7 @@ package com.applyandgrowth.models;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,13 +18,19 @@ public class Client implements Serializable{
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private long id;
-	@NotBlank(message="nome não pode ser nulo")
+	
+	@NotBlank
 	private String name;
-	@NotBlank(message="email não pode ser nulo")
-	@Email(message="email inválido")
+	
+	@NotBlank
+	@Email
+	@Column(unique = true)
 	private String email;
-	@NotBlank(message="senhao não pode ser nulo")
+	
+	@NotBlank
 	private String password;
+	
+	private boolean activated = false;
 	
 	public long getId() {
 		return id;
@@ -49,7 +56,11 @@ public class Client implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public boolean isActivated() {
+		return activated;
+	}
+	public void setActivated(boolean activated) {
+		this.activated = activated;
+	}
 	
-
-
 }

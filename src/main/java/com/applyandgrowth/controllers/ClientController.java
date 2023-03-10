@@ -25,7 +25,7 @@ public class ClientController {
 	
 	@RequestMapping(value="/createAccount", method=RequestMethod.POST)
 	public String createAccount(@Valid Client client, BindingResult br, RedirectAttributes attributes) {
-	    if(br.hasErrors()) {
+		if(br.hasErrors()) {
 	    	attributes.addFlashAttribute("flashMessage", "Check the fields!");
 	    	attributes.addFlashAttribute("flashType", "danger");
 			return "redirect:/createAccount"; 
@@ -40,4 +40,20 @@ public class ClientController {
 	public String login() {
 		return "login";
 	}
+	
+	@RequestMapping(value="/recoverPass")
+	public String recoverPassword() {
+		return "recover_password";
+	}
+	
+	@RequestMapping(value="/indexClient")
+	public String indexClient() {
+		return "index";
+	}
+	
+	@RequestMapping(value="/indexAdvertiser")
+	public String indexAdvertiser() {
+		return "index_advertiser";
+	}
+	
 }
