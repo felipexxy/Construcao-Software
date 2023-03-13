@@ -41,7 +41,7 @@ public class ClientController {
 		return "login";
 	}
 	
-	@RequestMapping(value="/recoverPass")
+	@RequestMapping(value="/recoverPass", method=RequestMethod.GET)
 	public String recoverPassword() {
 		return "recover_password";
 	}
