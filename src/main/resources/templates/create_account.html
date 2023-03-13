@@ -27,28 +27,34 @@
     <main>
         <section class="box-create">
             <div class="contend">
-               <div class="partition1">
-                 <h2>Create your Account</h2>
-                 <p>Created for Developers by UEM</p>
-               </div>
+                 <div class="partition1">
+                    <h2>Create your Account</h2>
+                    <p>Created for Developers by UEM</p>
+                </div>
 			<div class ="error" th:if="${flashMessage != null}">
 				<div 
 					th:replace="validationMessage :: alert (type=${flashType}, message=${flashMessage})">
 				</div>
 			</div>
 			<form method="post">
-				<input class="name" type="text" placeholder="Full Name" name="name">
-                  <input class="mail" type="text" placeholder="Email" name="email">
-                  <input class="password" type="password" placeholder="Password" name="password">
-                  <div class="custom-checkbox">
-                     <input id="checkbox1" type="checkbox">
-                     <label for="checkbox1">I agree to the Terms and Conditions</label>
-                  </div>
-                    <button type="submit">Create my account</button>
-                </form>
-                <div class="sign-up">
-                    <p>Alredy have an account ? <a href="/">Sign In</a></p>
+                <input class="name" type="text" placeholder="Full Name" name="name">
+                <input class="mail" type="text" placeholder="Email" name="email">
+                <input class="password" type="password" placeholder="Password" name="password">
+
+                <select name="isAdvertiser" id="isAdvertiser">
+                    <option value="0">Client</option>
+                    <option value="1">Advertiser</option>
+                </select>
+
+                <div class="custom-checkbox">
+                    <input id="checkbox1" type="checkbox">
+                <label for="checkbox1">I agree to the Terms and Conditions</label>
                 </div>
+                <button type="submit">Create my account</button>
+            </form>
+            <div class="sign-up">
+                <p>Alredy have an account ? <a href="/">Sign In</a></p>
+            </div>
             </div>
         </section>
     </main>

@@ -29,9 +29,18 @@ public class Client implements Serializable{
 	
 	@NotBlank
 	private String password;
+
+	@NotBlank
+	private String isAdvertiser;
 	
 	private boolean activated = false;
 	
+	public String getIsAdvertiser() {
+		return isAdvertiser;
+	}
+	public void setIsAdvertiser(String isAdvertiser) {
+		this.isAdvertiser = isAdvertiser;
+	}
 	public long getId() {
 		return id;
 	}
