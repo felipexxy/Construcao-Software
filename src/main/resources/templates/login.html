@@ -18,10 +18,17 @@
     <main>
         <section class="contend">
             <h1>Sign in</h1>
-            <p>Login to manege your account</p>
-            <form action="index.html">
-                <input class="mail" type="text" placeholder="Email">
-                <input class="password" type="password" placeholder="Password">
+            <p>Login to manage your account</p>
+
+            <div class ="error" th:if="${flashMessage != null}">
+				<div 
+					th:replace="validationMessage :: alert (type=${flashType}, message=${flashMessage})">
+				</div>
+			</div>
+
+            <form method="post">
+                <input class="mail" type="text" placeholder="Email" name="email">
+                <input class="password" type="password" placeholder="Password" name="password">
                 <div class="custom-checkbox">
                     <input id="checkbox1" type="checkbox">
                     <label for="checkbox1">Remember-me</label>

@@ -15,7 +15,7 @@ header{
 
 main{
     width: 444px;
-    height: 423px;
+    height: 500px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     box-shadow: -10px 10px 10px rgb(71, 71, 71) ;
@@ -28,11 +28,11 @@ main{
 
 .contend{
     width: 350px;
-    height: 350px;
+    height: 500px;
 }
 
 .contend h1, .contend p, .link_center{
-    margin: 15px auto;
+    margin: 30px auto;
 }
 
 .contend h1{
@@ -130,4 +130,15 @@ footer a{
     font-size: 14px;
     font-weight: bold;
     color: #C44900;
+}
+
+.error{
+	background-color: #D09090;
+	color: #990000;
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	border: solid 1px #990000;
+	padding: 10px 0 10px 10px;;
 }
