@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -34,7 +35,7 @@ public class Client implements Serializable{
 	private String isAdvertiser;
 	
 	private boolean activated = false;
-	
+
 	public String getIsAdvertiser() {
 		return isAdvertiser;
 	}
