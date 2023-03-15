@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -32,8 +33,8 @@ public class User {
 	@NotBlank
 	private String password;
 
-	@NotBlank
-	private String isAdvertiser;
+	@Transient
+	private String role;
 	
 	private boolean activated = false;
 
@@ -53,21 +54,19 @@ public class User {
 		String name,
 		String email,
 		String password,
-		String isAdvertiser,
 		Collection<Role> roles
 	) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.isAdvertiser = isAdvertiser;
 		this.roles = roles;
 	}
-	public String getIsAdvertiser() {
-		return isAdvertiser;
+	public String getRole() {
+		return role;
 	}
-	public void setIsAdvertiser(String isAdvertiser) {
-		this.isAdvertiser = isAdvertiser;
+	public void setRole(String role) {
+		this.role = role;
 	}
 	public long getId() {
 		return id;

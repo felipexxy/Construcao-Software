@@ -4,18 +4,18 @@ public class UserRegistrationDto {
 	private String name;
 	private String email;
 	private String password;
-	private String isAdvertiser;
+	private String role;
 	private boolean activated = false;
 
 	public UserRegistrationDto() {
 		
 	}
 
-	public UserRegistrationDto(String name, String email, String password, String isAdvertiser, boolean activated) {
+	public UserRegistrationDto(String name, String email, String password, String role, boolean activated) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.isAdvertiser = isAdvertiser;
+		this.role = role;
 		this.activated = activated;
 	}
 	public String getName() {
@@ -36,11 +36,11 @@ public class UserRegistrationDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getIsAdvertiser() {
-		return isAdvertiser;
+	public String getRole() {
+		return role;
 	}
-	public void setIsAdvertiser(String isAdvertiser) {
-		this.isAdvertiser = isAdvertiser;
+	public void setRole(String role) {
+		this.role = role;
 	}
 	public boolean isActivated() {
 		return activated;
