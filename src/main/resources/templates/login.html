@@ -20,26 +20,40 @@
             <h1>Sign in</h1>
             <p>Login to manage your account</p>
 
-            <div class ="error" th:if="${flashMessage != null}">
-				<div 
-					th:replace="validationMessage :: alert (type=${flashType}, message=${flashMessage})">
-				</div>
-			</div>
+            <form th:action="@{/}" method="post">
+                <div th:if="${param.error}">
+                    <div class="error">Invalid username or
+                        password.</div>
+                </div>
 
-            <form method="post">
-                <input class="mail" type="text" placeholder="Email" name="email">
-                <input class="password" type="password" placeholder="Password" name="password">
+                <div th:if="${param.logout}">
+                    <div class="error">You have been logged out.</div>
+                </div>
+
+                <div>
+                    <input class = "mail" type="text" name = "username"
+                        placeholder="Email" autofocus="autofocus">
+                </div>
+
+                <div>
+                    <input class="password" type="password" name="password"
+                        placeholder="Password">
+                </div>
+
                 <div class="custom-checkbox">
                     <input name="rememberUser" id="checkbox1" type="checkbox">
                     <label for="checkbox1">Remember-me</label>
                 </div>
+
                 <button id="signin" type="submit">Sign in</button>
+
+                <!-- <p class="show_pass">show</p> -->
+
             </form>
-            <p class="show_pass">show</p>
         </section>
     </main>
     <footer>
-            <p>Don’t have an account ? <a href="/createAccount">Sign Up</a></p>
+            <p>Don’t have an account ? <a href="/" th:href="@{/create_account}">Sign Up</a></p>
             <div class="link_center">
               <a href="/recoverPass">Forgot password?</a>
             </div>

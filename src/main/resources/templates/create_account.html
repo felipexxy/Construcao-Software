@@ -31,30 +31,45 @@
                     <h2>Create your Account</h2>
                     <p>Created for Developers by UEM</p>
                 </div>
-			<div class ="error" th:if="${flashMessage != null}">
-				<div 
-					th:replace="validationMessage :: alert (type=${flashType}, message=${flashMessage})">
+
+                <div th:if="${param.success}">
+					<div class="error">Registration done successfully</div>
 				</div>
-			</div>
-			<form method="post">
-                <input class="name" type="text" placeholder="Full Name" name="name">
-                <input class="mail" type="text" placeholder="Email" name="email">
-                <input class="password" type="password" placeholder="Password" name="password">
 
-                <select name="isAdvertiser" id="isAdvertiser">
-                    <option value="0">Client</option>
-                    <option value="1">Advertiser</option>
-                </select>
+                <form th:action="@{/create_account}" method="post" th:object="${user}">
+                    <div>
+						<input class="name" th:field="*{name}"
+							required autofocus="autofocus" placeholder="Full name"/>
+					</div>
 
-                <div class="custom-checkbox">
-                    <input id="checkbox1" type="checkbox">
-                    <label for="checkbox1">I agree to the Terms and Conditions</label>
+                    <div>
+						 <input class="mail" th:field="*{email}" 
+                            required autofocus="autofocus" placeholder="Email"/>
+					</div>
+
+                    <div>
+                         <input class="password" type="password" 
+                         th:field="*{password}" required autofocus="autofocus" 
+                         placeholder="Password"/>
+					</div>
+
+                    <select th:field="*{isAdvertiser}" id="isAdvertiser">
+                        <option value="0">Client</option>
+                        <option value="1">Advertiser</option>
+                    </select>
+
+                    <div class="custom-checkbox">
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1">I agree to the Terms and Conditions</label>
+                    </div>
+
+                    <button type="submit">Create my account</button>
+
+                </form>
+                
+                <div class="sign-up">
+                    <p>Alredy have an account ? <a href="/" th:href="@{/}">Sign In</a></p>
                 </div>
-                <button type="submit">Create my account</button>
-            </form>
-            <div class="sign-up">
-                <p>Alredy have an account ? <a href="/">Sign In</a></p>
-            </div>
             </div>
         </section>
     </main>

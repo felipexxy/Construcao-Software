@@ -1,23 +1,17 @@
 package com.applyandgrowth.models;
 
-import java.io.Serializable;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Client implements Serializable{
-	
-	private static final long serialVersionUID = 1L; //atributo estatico  
-	
+public class User {
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private long id;
 	
 	@NotBlank
@@ -36,6 +30,22 @@ public class Client implements Serializable{
 	
 	private boolean activated = false;
 
+	public User() {
+		
+	}
+
+	public User(
+		String name,
+		String email,
+		String password,
+		String isAdvertiser
+	) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.isAdvertiser = isAdvertiser;
+	}
 	public String getIsAdvertiser() {
 		return isAdvertiser;
 	}
@@ -72,5 +82,4 @@ public class Client implements Serializable{
 	public void setActivated(boolean activated) {
 		this.activated = activated;
 	}
-	
 }
