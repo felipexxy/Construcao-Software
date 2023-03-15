@@ -5,19 +5,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-	
-	@GetMapping("/")
+	@GetMapping("/login")
 	public String login() {
 		return "login";
 	}
 	
-	@GetMapping("/index_client")
-	public String indexClient() {
-		return "index";
-	}
-
-	@GetMapping("/index_advertiser")
-	public String home() {
-		return "index_advertiser";
+	@GetMapping("/")
+	public String index() {
+		return "index";  // Fazer alguma lógica para redirecionar para o index
+						 // de advertiser de acordo com a role?
 	}
 }

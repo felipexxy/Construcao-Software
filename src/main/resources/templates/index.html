@@ -13,14 +13,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-
-    <script th:if="${session.user_name != null}" th:inline="javascript">
-        /*<![CDATA[*/
-          
-           var user_name = /*[[${session.user_name}]]*/ 'User Name';
-           localStorage.setItem('user_name', user_name);
-         /*]]>*/
-    </script> 
 </head>
 <body>
     <header>
@@ -29,11 +21,8 @@
         <div class="user">
             <img class="user_icon" src="img/icon/notification.png">
             <img class="user_icon" src="img/icon/user_white.png">
-            <p id="welcome_user">Welcome,<br></p>
-            <script>
-                document.getElementById("welcome_user").innerHTML = 
-                    document.getElementById("welcome_user").innerHTML.concat(localStorage.getItem("user_name"));
-            </script>
+            <p id="welcome_user">Welcome,<br>User</p>
+
         </div>
     </header>
     <img class="promotion2" src="img/icon/30_Off.png">

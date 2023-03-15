@@ -1,10 +1,17 @@
 package com.applyandgrowth.models;
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -30,6 +37,14 @@ public class User {
 	
 	private boolean activated = false;
 
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "users_roles",
+			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+	)
+	private Collection<Role> roles;
+
 	public User() {
 		
 	}
@@ -38,13 +53,15 @@ public class User {
 		String name,
 		String email,
 		String password,
-		String isAdvertiser
+		String isAdvertiser,
+		Collection<Role> roles
 	) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.isAdvertiser = isAdvertiser;
+		this.roles = roles;
 	}
 	public String getIsAdvertiser() {
 		return isAdvertiser;
@@ -81,5 +98,11 @@ public class User {
 	}
 	public void setActivated(boolean activated) {
 		this.activated = activated;
+	}
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
 	}
 }
