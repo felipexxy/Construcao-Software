@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account - A&G</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/create_account.css">
+    <link rel="stylesheet" href="css/registration.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
 					<div class="error">Registration done successfully</div>
 				</div>
 
-                <form th:action="@{/create_account}" method="post" th:object="${user}">
+                <form th:action="@{/registration}" method="post" th:object="${user}">
                     <div>
 						<input class="name" th:field="*{name}"
 							required autofocus="autofocus" placeholder="Full name"/>

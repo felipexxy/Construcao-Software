@@ -10,7 +10,7 @@ import com.applyandgrowth.services.UserService;
 import com.applyandgrowth.web.dto.UserRegistrationDto;
 
 @Controller
-@RequestMapping("/create_account")
+@RequestMapping("/registration")
 public class UserRegistrationController {
 
 	private UserService clientService;
@@ -27,12 +27,12 @@ public class UserRegistrationController {
 	
 	@GetMapping
 	public String showRegistrationForm() {
-		return "create_account";
+		return "registration";
 	}
 	
 	@PostMapping
 	public String registerClientAccount(@ModelAttribute("user") UserRegistrationDto registrationDto) {
 		clientService.save(registrationDto);
-		return "redirect:/create_account?success";
+		return "redirect:/registration?success";
 	}
 }
