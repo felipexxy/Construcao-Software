@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account - A&G</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/registration.css">
+    <link rel="stylesheet" href="css/register.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -36,30 +36,38 @@
 					<div class="error">Registration done successfully</div>
 				</div>
 
-                <form th:action="@{/registration}" method="post" th:object="${user}">
+                <form method="post" role="form" th:action="@{/register/save}" th:object="${user}">
+                    <div th:if="${param.error}">
+                        <div class="error">Check the Fields.</div>
+                    </div>
                     <div>
-						<input class="name" th:field="*{name}"
-							required autofocus="autofocus" placeholder="Full name"/>
+						<input id="name" class="name" name="name" type="text" 
+                            th:field="*{name}" placeholder="Full name"/>
+                        <p th:errors = "*{name}" class="error"
+                            th:if="${#fields.hasErrors('name')}"></p>
 					</div>
 
                     <div>
-						 <input class="mail" th:field="*{email}" 
-                            required autofocus="autofocus" placeholder="Email"/>
+						 <input class="email" name="email" type="text" 
+                            th:field="*{email}" placeholder="Email"/>
+                        <p th:errors = "*{email}" class="error"
+                            th:if="${#fields.hasErrors('email')}"></p>
 					</div>
 
                     <div>
-                         <input class="password" type="password" 
-                         th:field="*{password}" required autofocus="autofocus" 
-                         placeholder="Password"/>
+                         <input id="password" class="password" name="password" 
+                         type="password" th:field="*{password}" placeholder="Password"/>
+                         <p th:errors = "*{password}" class="error"
+                            th:if="${#fields.hasErrors('password')}"></p>
 					</div>
 
-                    <select th:field="*{role}" id="role">
-                        <option value="customer">Customer</option>
-                        <option value="advertiser">Advertiser</option>
+                    <select id="role" class="role" name="role" th:field="*{role}">
+                        <option value="ROLE_CUSTOMER">Customer</option>
+                        <option value="ROLE_ADVERTISER">Advertiser</option>
                     </select>
 
                     <div class="custom-checkbox">
-                        <input id="checkbox1" type="checkbox">
+                        <input id="checkbox1" class="checkbox1" name="checkbox1" type="checkbox">
                         <label for="checkbox1">I agree to the Terms and Conditions</label>
                     </div>
 
@@ -68,7 +76,7 @@
                 </form>
                 
                 <div class="sign-up">
-                    <p>Alredy have an account ? <a href="/" th:href="@{/}">Sign In</a></p>
+                    <p>Alredy have an account ? <a th:href="@{/login}">Sign In</a></p>
                 </div>
             </div>
         </section>

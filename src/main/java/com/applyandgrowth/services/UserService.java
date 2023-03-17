@@ -1,10 +1,14 @@
 package com.applyandgrowth.services;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
-
+import com.applyandgrowth.web.dto.UserDto;
 import com.applyandgrowth.models.User;
-import com.applyandgrowth.web.dto.UserRegistrationDto;
 
-public interface UserService extends UserDetailsService{
-	User save(UserRegistrationDto registrationDto);
+import java.util.List;
+
+public interface UserService {
+    void save(UserDto userDto);
+
+    User findUserByEmail(String email);
+
+    List<UserDto> findAllUsers();
 }

@@ -2,17 +2,16 @@ package com.applyandgrowth.controllers;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserController {
-	@RequestMapping(value="/recoverPass", method=RequestMethod.GET)
+	@GetMapping(value="/recoverPass")
 	public String recoverPassword() {
 		return "recover_password";
 	}
 
-	@RequestMapping(value="/settings")
+	@GetMapping("/settings")
 	public String settings() {
 		return "settings";
 	}
