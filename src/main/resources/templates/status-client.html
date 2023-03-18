@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings - A&G</title>
+    <title>Card Information - A&G</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="css/header_settings.css">
+    <link rel="stylesheet" href="css/card_information.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -29,6 +29,7 @@
                     <div class="top">
                         <img class="icon" src="img/icon/dashboard.png">
                         <a class="selection" href="/settings">Basic Info</a>
+                        <p></p>
                     </div>
                     <div class="border">
                         <img class="icon" src="img/icon/user_white.png">
@@ -50,36 +51,36 @@
             </section>
             <div class="log_out">
                 <img src="img/icon/log_out.png">
-                <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Log out</a>
+                <a href="login.html">Log Out</a>
             </div>
         </section>
         <section class="content">
-            <p class="way">Settings > Basic Info</p> 
-            <div>
-                <h1><span>1 </span>PROFILE</h1>
-                <form>
-                    <label>First Name</label>
-                    <input class="name" type="text">
-                    <label>Last Name</label>
-                    <input class="last-name" type="text">
-                    <label class="label-mail">Your Email</label>
-                    <input class="mail" type="mail">
-                    <label>Country, City</label>
-                    <input class="country" type="text">
-                    <button onclick="alert('Information Successfully Registered !')">Update Profile</button>
-                </form>
-            </div>
-            <div>
-                <h1><span>2 </span>PASSWORD</h1>
-                <form>
-                    <label>New Password</label>
-                    <input class="password" type="password">
-                    <label>Confirm new Password</label>
-                    <input class="confir-pass" type="password">
-                </form>
-            </div>
-        </section>
+            <p class="way">Settings > Credit Card</p>
+            <section class="profile">
+                <h1><span>1 </span>ACCOUNT STATUS</h1>
+                <div class="card">
+                    <span>Observation</span>
+                    <p>To become an Advertiser, simply register your credit 
+                        card information and, for 24 hours,<br> your account will 
+                        go through a verification system, where it will be analyzed 
+                        and approved.
+                    </p>
+                </div>
+                <div class="table-button">
+                    <table>
+                        <tr>
+                            <td>Name</td>
+                            <td>Status</td>
+                        </tr>
+                        <tr>
+                            <td class="teste">Felipe Piassa</td>
+                            <td class="teste"><span class="status">Customer</span></td>
+                        </tr>
+                    </table>
+                    <button>Become an Advertiser</button>
+                </div>
+            </section>
+    </section>
     </main>
 </body>
-
 </html>

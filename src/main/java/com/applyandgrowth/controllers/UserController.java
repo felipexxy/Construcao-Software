@@ -25,4 +25,9 @@ public class UserController {
 	public String settings() {
 		return "settings";
 	}
+	
+	@GetMapping("/status")
+	public String status() {
+		return "status-client";
+	}
 }

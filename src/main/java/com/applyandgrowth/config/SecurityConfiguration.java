@@ -55,6 +55,7 @@ public class SecurityConfiguration {
                 "/recover/**",
                 "/").permitAll()
                 .requestMatchers("/settings").permitAll()
+                .requestMatchers("/status").permitAll()
                 .requestMatchers("/customer/**").hasRole("CUSTOMER")
                 .requestMatchers("/advertiser/**").hasRole("ADVERTISER")
 			).formLogin(
