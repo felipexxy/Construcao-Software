@@ -47,10 +47,12 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http, RememberMeServices rememberMeServices) throws Exception {
         http.csrf().disable()
 			.authorizeHttpRequests((authorize) -> authorize.requestMatchers(
+                "/login/**",
                 "/register/**",
                 "/js/**",
                 "/css/**",
                 "/img/**",
+                "/recover/**",
                 "/").permitAll()
                 .requestMatchers("/settings").permitAll()
                 .requestMatchers("/customer/**").hasRole("CUSTOMER")

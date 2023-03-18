@@ -49,6 +49,9 @@ public class User {
 	
 	private boolean activated = false;
 
+	@Transient
+	private String terms;
+
 	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
             name="users_roles",

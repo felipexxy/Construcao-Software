@@ -22,4 +22,6 @@ public class UserDto {
 	@NotEmpty
 	private String role;
 	private boolean activated = false;
+	@NotEmpty(message = "Please agree with terms and conditions")
+	private String terms;
 }

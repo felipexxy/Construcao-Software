@@ -14,8 +14,8 @@ header{
 }
 
 main{
-    width: 444px;
-    height: 500px;
+    display: block;
+    overflow: auto;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     box-shadow: -10px 10px 10px rgb(71, 71, 71) ;
@@ -23,12 +23,15 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom:100px;
+    padding-inline:35px;
     margin-bottom: 35px;
 }
 
 .contend{
-    width: 350px;
-    height: 500px;
+    display: block;
+    overflow: auto;
+    padding:20px;
 }
 
 .contend h1, .contend p, .link_center{
@@ -60,7 +63,7 @@ form input{
     background-position-x: 10px;
 }
 
-.password{
+.password {
     background-image: url('../img/icon/password.png');
     background-repeat: no-repeat;
     background-position:left;
@@ -121,15 +124,6 @@ footer a{
 
 .link_center{
     text-align: center;
-}
-
-.show_pass{
-    position: absolute;
-    top: 366px;
-    right: 600px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #C44900;
 }
 
 .error{

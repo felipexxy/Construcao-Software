@@ -38,7 +38,7 @@
 
                 <form method="post" role="form" th:action="@{/register/save}" th:object="${user}">
                     <div th:if="${param.error}">
-                        <div class="error">Check the Fields.</div>
+                        <div class="error">Check the fields.</div>
                     </div>
                     <div>
 						<input id="name" class="name" name="name" type="text" 
@@ -67,7 +67,7 @@
                     </select>
 
                     <div class="custom-checkbox">
-                        <input id="checkbox1" class="checkbox1" name="checkbox1" type="checkbox">
+                        <input id="checkbox1" class="checkbox1" name="terms" type="checkbox">
                         <label for="checkbox1">I agree to the Terms and Conditions</label>
                     </div>
 
