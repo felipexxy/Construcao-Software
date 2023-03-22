@@ -11,9 +11,10 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
@@ -51,6 +52,9 @@ public class User {
 
 	@Transient
 	private String terms;
+	
+	@OneToMany
+	private List<Product> advProduct;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
@@ -113,6 +117,14 @@ public class User {
 
 	public String getRole() {
 		return role;
+	}
+	
+	public List<Product> getAdvProduct() {
+		return advProduct;
+	}
+
+	public void setAdvProduct(Product product) {
+		this.advProduct.add(product);
 	}
 
 	public void setRole(String role) {

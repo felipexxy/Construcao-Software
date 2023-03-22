@@ -1,6 +1,6 @@
 .bg_delimiter{
     width: 1120px;
-    height: 860px;
+    height: 600px;
     background: radial-gradient(102.98% 2129.71% at 0% 102.98%, rgba(20, 48, 102, 0.225) 0%, rgba(83, 83, 83, 0.24) 21.88%, rgba(229, 85, 0, 0.135) 99.48%, rgba(229, 85, 0, 0.135) 99.49%);
     border-radius: 10px;
     position: absolute;
@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     position: absolute;
     left: 50px;
     top: 30px;
@@ -47,7 +47,6 @@ span{
     font-size: 16px;
     color: white;
     padding-left: 30px;
-    margin-bottom: 20px;
 }
 
 ::placeholder{
@@ -64,7 +63,7 @@ span{
     font-size: 16px;
     color: white;
     padding-left: 30px;
-    margin-bottom: 20px;
+    margin-top: 48px;
 }
 
 .input3{
@@ -78,26 +77,6 @@ span{
     padding-left: 30px;
 }
 
-button{
-    background-color: #C44900;
-    width: 35px;
-    height: 35px;
-    border: 2px solid white;
-    border-radius: 8px;
-    color: white;
-    font-size: 20px;
-    margin-top: 25px;
-    cursor: pointer;
-    transition: .3s;
-    margin-bottom: 20px;
-}
-
-button:hover{
-    background-color: white;
-    color:#C44900;
-    border: solid 2px #C44900;
-}
-
 .edit{
     width: 100px;
     height: 88px;
@@ -109,6 +88,7 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .info{
@@ -120,35 +100,15 @@ button:hover{
     margin-bottom: 20px;
 }
 
-.form1{
+form{
     display: flex;
     flex-direction: column;
-}
-
-.group1{
+    flex-wrap: wrap;
+    height: 500px;
+    width: 900px;
     position: absolute;
+    top: 100px;
     left: 50px;
-    top: 120px;
-}
-
-.group2{
-    position: absolute;
-    left: 600px;
-    top: 120px;
-}
-
-.group2 form{
-    display: flex;
-    flex-direction: row;
-    font-size: 12px;
-    font-weight: bold;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.group2 p{
-    margin-right: 20px;
 }
 
 .input4, .input5{
@@ -158,35 +118,18 @@ button:hover{
     border-radius: 5px;
     border: 2px solid white;
     padding-left: 30px;
-    margin-left: 10px;
     color: white;
+    margin-bottom: 20px;
 }
 
-.custom-checkbox input{
-    display: none;
+.delimiter{
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 20px;
 }
 
-.custom-checkbox input + label:before{
-    content: '';
-    width: 26px;
-    height: 26px;
-    border-radius: 4px;
-    background-color: rgba(170, 170, 170, 0.2);
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 8px;
-    box-shadow: 0 3px 5px rgb(45, 44, 44);
-}
-
-.custom-checkbox input:checked + label::before{
-    background-color: #C44900;
-    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.group3{
-    position: absolute;
-    left: 600px;
-    top: 320px;
+.space{
+	margin-right: 20px;
 }
 
 .save{
@@ -200,14 +143,34 @@ button:hover{
         margin-top: 25px;
         cursor: pointer;
         transition: .3s;
-        margin-bottom: 20px;
-        position: absolute;
-        bottom: 50px;
-        right: 150px;
+}
+
+.error{
+	background-color: #D09090;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	border: solid 1px #990000;
+	padding: 10px 0 10px 10px;
+	width: 477px;
+}
+
+.sucess{
+	background-color: #86e3b6;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	border: solid 1px #248757;
+	padding: 10px 0 10px 10px;
+    width: 477px;
 }
 
 .marcation{
     position: absolute;
-    top: 245px;
+    top: 345px;
     left: 260px;
 }

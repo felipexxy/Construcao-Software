@@ -30,4 +30,5 @@ public class UserController {
 	public String status() {
 		return "status-client";
 	}
+	
 }

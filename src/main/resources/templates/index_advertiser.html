@@ -20,7 +20,7 @@
         <div class="user">
             <img class="user_icon" src="img/icon/notification.png">
             <img class="user_icon" src="img/icon/user_white.png">
-            <p>Welcome,<br>User</p>
+            <p id="welcome_user">Welcome,<br><span sec:authentication="principal.username">User</span></p>
         </div>
     </header>
     <p class="style">Categories</p>
@@ -33,7 +33,7 @@
             <section class="navegation">
                 <div class=home>
                     <img src="img/icon/dashboard.png">
-                    <a href="index_advertiser.html">Home</a>
+                    <a th:href="@{/advertiser}">Home</a>
                 </div>
                 <div class="my_sales">
                     <img src="img/icon/products.png">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="my_products">
                     <img src="img/icon/products.png">
-                    <a href="my_products_advertiser.html">My Products</a>
+                    <a href="/myProducts">My Products</a>
                 </div>
             </section>
             <div class="settings">
@@ -145,7 +145,6 @@
                                 </div>
                             </a>
                         </div>
-                        <!-- fim do group 4 -->
                     </div>
                 </div>
                     </section> 

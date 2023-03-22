@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Products - A&G</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header_advertiser.css">
+    <link rel="stylesheet" href="css/my_products_advertiser.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="img/icon/logo_white.png">
+        <input type="text" placeholder="Search ...">
+        <div class="user">
+            <img class="user_icon" src="img/icon/notification.png">
+            <img class="user_icon" src="img/icon/user_white.png">
+            <p id="welcome_user">Welcome,<br><span sec:authentication="principal.username">User</span></p>
+        </div>
+    </header>
+    <img class="marcation" src="img/icon/marcation.png">
+    <main>
+        <section class="navegation">
+            <div class=home>
+                <img src="img/icon/dashboard.png">
+                <a href="/">Home</a>
+            </div>
+            <div class="my_sales">
+                <img src="img/icon/products.png">
+                <a href="my_sales.html">My Sales</a>
+            </div>
+            <div class="my_products">
+                <img src="img/icon/products.png">
+                <a th:href="@{/myProducts}">My Products</a>
+            </div>
+        </section>
+        <div class="settings">
+            <img src="img/icon/settings.png">
+            <a th:href="@{/settings}">Settings</a>
+        </div>
+        <div class="bg_delimiter">
+            <h1 class="my">My Products</h1>
+            <div class="group">
+                <a class="button"><img src="img/icon/Vector.png"> Filter</a>
+                <a class="button"><img src="img/icon/Arrow up.png">Export</a>
+                <form th:action="@{/createSale}">
+                    <button type="submit">+ Create Sale</button>
+                </form>
+            </div>
+            <p class="in_progress">In Progress</p>
+            <div class="grid">
+                <div class="table">
+                    <input type="checkbox">
+                    <p class="value">VALUE</p>
+                    <p class="name_product">PRODUCT</p>
+                    <p class="name_categorie">CATEGORIE</p>
+                    <p>PUBLISH DATE</p>
+                </div>
+                <div class="product">
+                    <input type="checkbox">
+                    <p class="price">R$199.00</p>
+                    <div class="progress">
+                        <img src="img/icon/loading.png">
+                        <p>In ad</p>
+                    </div>
+                    <p class="name">Top Whey 3W + Performance ..</p>
+                    <p class="name">Suplement</p>
+                    <p class="name">Dec 23, 09:50 PM</p>
+                    <img src="img/icon/pointer.png">
+                </div>
+                <div class="product">
+                    <input type="checkbox">
+                    <p class="price">R$199.00</p>
+                    <div class="progress">
+                        <img src="img/icon/loading.png">
+                        <p>In ad</p>
+                    </div>
+                    <p class="name">Top Whey 3W + Performance ..</p>
+                    <p class="name">Suplement</p>
+                    <p class="name">Dec 23, 09:50 PM</p>
+                    <img src="img/icon/pointer.png">
+                </div>
+                <div class="product">
+                    <input type="checkbox">
+                    <p class="price">R$199.00</p>
+                    <div class="progress">
+                        <img src="img/icon/loading.png">
+                        <p>In ad</p>
+                    </div>
+                    <p class="name">Top Whey 3W + Performance ..</p>
+                    <p class="name">Suplement</p>
+                    <p class="name">Dec 23, 09:50 PM</p>
+                    <img src="img/icon/pointer.png">
+                </div>
+                <div class="product">
+                    <input type="checkbox">
+                    <p class="price">R$199.00</p>
+                    <div class="progress">
+                        <img src="img/icon/loading.png">
+                        <p>In ad</p>
+                    </div>
+                    <p class="name">Top Whey 3W + Performance ..</p>
+                    <p class="name">Suplement</p>
+                    <p class="name">Dec 23, 09:50 PM</p>
+                    <img src="img/icon/pointer.png">
+                </div>
+                <div class="product">
+                    <input type="checkbox">
+                    <p class="price">R$199.00</p>
+                    <div class="progress">
+                        <img src="img/icon/loading.png">
+                        <p>In ad</p>
+                    </div>
+                    <p class="name">Top Whey 3W + Performance ..</p>
+                    <p class="name">Suplement</p>
+                    <p class="name">Dec 23, 09:50 PM</p>
+                    <img src="img/icon/pointer.png">
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>
