@@ -50,7 +50,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: -10px 10px 10px rgb(71, 71, 71) ;
+    box-shadow: 5px 10px 15px rgba(71, 71, 71, 0.438);
 }
 
 .contend{
@@ -78,7 +78,7 @@ form button{
     font-size: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
-    box-shadow: -10px 10px 10px rgb(71, 71, 71) ;
+    box-shadow: 0px 6px 8px rgba(71, 71, 71, 0.3500);
     cursor: pointer;
     transition: .3s;
 }
@@ -204,7 +204,7 @@ input::placeholder, option::placeholder{
     display: inline-block;
     vertical-align: middle;
     margin-right: 8px;
-    box-shadow: 0 3px 5px rgb(45, 44, 44);
+    box-shadow: 0 3px 5px rgb(45, 44, 44, 0.7);
 }
 
 .custom-checkbox input:checked + label::before{
