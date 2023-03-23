@@ -29,6 +29,8 @@ public class Product implements Serializable{
 	private String price;
 	
 	private String coupon;
+
+	private String img;
 	
 	public long getId() {
 		return id;
@@ -72,5 +74,11 @@ public class Product implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
 }

@@ -46,7 +46,7 @@
 			<img src="img/icon/shopping.png">
 			<h1>Create Sale</h1>
 		</div>
-		<form method="post">
+		<form method="post" enctype="multipart/form-data">
 			<div th:if="${param.success}">
 				<div class="sucess">Product successfully registered</div>
 			</div>
@@ -61,11 +61,12 @@
 			<div class="delimiter">
 				<div class="space">
 					<h2>Gallery</h2>
-					<p class="edit">Edit ...</p>
+					<input type="file" accept="image/jpeg, image/png" name="file" placeholder="chose image">
 				</div>
 				<div>
 					<h2>Category</h2>
-					<input class="input3" type="text" name="category" placeholder="Edit ...">
+					<input class="input3" type="text" name="category"
+						placeholder="Edit ...">
 				</div>
 			</div>
 			<h2>
