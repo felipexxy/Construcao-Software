@@ -1,6 +1,8 @@
 package com.applyandgrowth.models;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +33,8 @@ public class Product implements Serializable{
 	private String coupon;
 
 	private String img;
+	
+	private String dateAndTime;
 	
 	public long getId() {
 		return id;
@@ -80,5 +84,23 @@ public class Product implements Serializable{
 	public void setImg(String img) {
 		this.img = img;
 	}
+	public String getDateAndTime() {
+		return dateAndTime;
+	}
+	public void setDateAndTime() {
+		
+		Date dataTime = new Date();
+		
+		String date = new SimpleDateFormat("dd/MM/yyyy").format(dataTime);
+		String time = new SimpleDateFormat("HH:mm:ss").format(dataTime);
+		
+		this.dateAndTime = date + " " + time;
+	}
+	
+	
+	
+	
+	
+	
 	
 }

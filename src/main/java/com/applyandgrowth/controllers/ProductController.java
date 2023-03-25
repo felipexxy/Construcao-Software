@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.applyandgrowth.models.Product;
@@ -28,9 +29,15 @@ public class ProductController {
 	private UserRepository ur;
 	
 	@GetMapping("/myProducts")
-	public String products() {
-		return "my_products_advertiser";
+	public ModelAndView products() {
+		ModelAndView mv = new ModelAndView("my_products_advertiser");
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = ur.findByEmail(authentication.getName());
+		Iterable<Product> products = pr.findByUser_id(user.getId());
+		mv.addObject("products", products);
+		return mv;
 	}
+	
 	
 	@GetMapping("/createSale")
 	public String sale (){
@@ -38,16 +45,18 @@ public class ProductController {
 	}
 	
 	@PostMapping("/createSale")
-	public String createProduct(@Valid Product product, BindingResult br, RedirectAttributes attributes, @RequestParam("file") MultipartFile image){
+	public String createProduct(@Valid Product product, BindingResult br, RedirectAttributes attributes,
+			@RequestParam("file") MultipartFile image) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		
+
 		if (br.hasErrors())
 			return "redirect:/createSale?error";
 		else {
-				if(UploadUtil.fazerUploadImagem(image)) {
-					product.setImg(image.getOriginalFilename());
-				}
-		
+			if (UploadUtil.fazerUploadImagem(image)) {
+				product.setImg(image.getOriginalFilename());
+			}
+            
+			product.setDateAndTime();
 			User user = ur.findByEmail(authentication.getName());
 			user.setAdvProduct(product);
 			product.setUser(user);

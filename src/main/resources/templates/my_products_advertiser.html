@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,78 +52,30 @@
                     <button type="submit">+ Create Sale</button>
                 </form>
             </div>
-            <p class="in_progress">In Progress</p>
+           
+            <p class="in_progress">Advertised Products</p>
             <div class="grid">
                 <div class="table">
                     <input type="checkbox">
                     <p class="value">VALUE</p>
-                    <p class="name_product">PRODUCT</p>
+                    <p class="status">STATUS</p>
+                    <p class="name_product">NAME</p>
                     <p class="name_categorie">CATEGORIE</p>
                     <p>PUBLISH DATE</p>
                 </div>
-                <div class="product">
+                
+                <div th:each="product : ${products}" class="product">
                     <input type="checkbox">
-                    <p class="price">R$199.00</p>
-                    <div class="progress">
-                        <img src="img/icon/loading.png">
-                        <p>In ad</p>
-                    </div>
-                    <p class="name">Top Whey 3W + Performance ..</p>
-                    <p class="name">Suplement</p>
-                    <p class="name">Dec 23, 09:50 PM</p>
-                    <img src="img/icon/pointer.png">
-                </div>
-                <div class="product">
-                    <input type="checkbox">
-                    <p class="price">R$199.00</p>
-                    <div class="progress">
-                        <img src="img/icon/loading.png">
-                        <p>In ad</p>
-                    </div>
-                    <p class="name">Top Whey 3W + Performance ..</p>
-                    <p class="name">Suplement</p>
-                    <p class="name">Dec 23, 09:50 PM</p>
-                    <img src="img/icon/pointer.png">
-                </div>
-                <div class="product">
-                    <input type="checkbox">
-                    <p class="price">R$199.00</p>
-                    <div class="progress">
-                        <img src="img/icon/loading.png">
-                        <p>In ad</p>
-                    </div>
-                    <p class="name">Top Whey 3W + Performance ..</p>
-                    <p class="name">Suplement</p>
-                    <p class="name">Dec 23, 09:50 PM</p>
-                    <img src="img/icon/pointer.png">
-                </div>
-                <div class="product">
-                    <input type="checkbox">
-                    <p class="price">R$199.00</p>
-                    <div class="progress">
-                        <img src="img/icon/loading.png">
-                        <p>In ad</p>
-                    </div>
-                    <p class="name">Top Whey 3W + Performance ..</p>
-                    <p class="name">Suplement</p>
-                    <p class="name">Dec 23, 09:50 PM</p>
-                    <img src="img/icon/pointer.png">
-                </div>
-                <div class="product">
-                    <input type="checkbox">
-                    <p class="price">R$199.00</p>
-                    <div class="progress">
-                        <img src="img/icon/loading.png">
-                        <p>In ad</p>
-                    </div>
-                    <p class="name">Top Whey 3W + Performance ..</p>
-                    <p class="name">Suplement</p>
-                    <p class="name">Dec 23, 09:50 PM</p>
+                    <p class="price"><span th:text="${product.price}"></span></p>
+                        <img src="img/icon/cellBadge.png"  width="120">
+                    <p class="name"><span th:text="${product.title}"></span></p>
+                    <p class="name"><span th:text="${product.category}"></span></p>
+                    <p class="name"><span th:text="${product.dateAndTime}"></span></p>
                     <img src="img/icon/pointer.png">
                 </div>
             </div>
-        </div>
+	
+	</div>
     </main>
-    
 </body>
 </html>

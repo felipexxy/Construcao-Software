@@ -32,6 +32,7 @@
 .price{
     color: #252C32;
     font-weight: bold;
+    width: 80px;
 }
 
 .progress{
@@ -52,6 +53,8 @@
 .name{
     font-size: 16px;
     color: #252C32;
+    width: 180px;
+    font-weight: bold;
 }
 
 .table{
@@ -65,20 +68,24 @@
 }
 
 .table input{
-    margin-left: 35px;
+    margin-left: 24px;
 }
 
 .value{
-    margin-left: 70px;
-    margin-right: 300px;
+    margin-left: 43px;
+}
+
+.status{
+    margin-left: 100px;
 }
 
 .name_product{
-    margin-right: 140px;
+    margin-left: 72px;
 }
 
 .name_categorie{
-    margin-right: 60px;
+    margin-left: 180px;
+    margin-right: 160px;
 }
 
 .in_progress{

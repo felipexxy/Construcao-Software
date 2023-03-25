@@ -58,8 +58,8 @@ public class SecurityConfiguration {
                 .requestMatchers("/status").permitAll()
                 .requestMatchers("/customer/**").hasRole("CUSTOMER")
                 .requestMatchers("/advertiser/**").hasRole("ADVERTISER")
-                .requestMatchers("/myProducts/**").hasRole("ADVERTISER")
                 .requestMatchers("/createSale/**").hasRole("ADVERTISER")
+                .requestMatchers("/myProducts/**").hasRole("ADVERTISER")
 
 			).formLogin(
 				form -> form
