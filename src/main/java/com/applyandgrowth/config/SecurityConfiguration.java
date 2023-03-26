@@ -60,6 +60,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/advertiser/**").hasRole("ADVERTISER")
                 .requestMatchers("/createSale/**").hasRole("ADVERTISER")
                 .requestMatchers("/myProducts/**").hasRole("ADVERTISER")
+                .requestMatchers("/deleteProduct/**").hasRole("ADVERTISER")
 
 			).formLogin(
 				form -> form

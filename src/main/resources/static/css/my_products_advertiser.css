@@ -68,24 +68,24 @@
 }
 
 .table input{
-    margin-left: 24px;
+    margin-left: 20px;
 }
 
 .value{
-    margin-left: 43px;
+    margin-left: 35px;
 }
 
 .status{
-    margin-left: 100px;
+    margin-left: 90px;
 }
 
 .name_product{
-    margin-left: 72px;
+    margin-left: 65px;
 }
 
 .name_categorie{
-    margin-left: 180px;
-    margin-right: 160px;
+    margin-left: 173px;
+    margin-right: 145px;
 }
 
 .in_progress{

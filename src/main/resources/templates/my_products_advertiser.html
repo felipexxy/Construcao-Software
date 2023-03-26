@@ -28,7 +28,7 @@
         <section class="navegation">
             <div class=home>
                 <img src="img/icon/dashboard.png">
-                <a href="/">Home</a>
+                <a th:href="@{/advertiser}">Home</a>
             </div>
             <div class="my_sales">
                 <img src="img/icon/products.png">
@@ -71,7 +71,8 @@
                     <p class="name"><span th:text="${product.title}"></span></p>
                     <p class="name"><span th:text="${product.category}"></span></p>
                     <p class="name"><span th:text="${product.dateAndTime}"></span></p>
-                    <img src="img/icon/pointer.png">
+                    <a><img src="img/icon/edit.png"></a>
+                    <a th:href="@{'/deleteProduct?id=' + ${product.id}}" ><img src="img/icon/trash.png"></a>
                 </div>
             </div>
 	

@@ -29,13 +29,20 @@ public class ProductController {
 	private UserRepository ur;
 	
 	@GetMapping("/myProducts")
-	public ModelAndView products() {
+	public ModelAndView productsAdvertiser() {
 		ModelAndView mv = new ModelAndView("my_products_advertiser");
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = ur.findByEmail(authentication.getName());
 		Iterable<Product> products = pr.findByUser_id(user.getId());
 		mv.addObject("products", products);
 		return mv;
+	}
+	
+	@GetMapping("/deleteProduct")
+	public String deleteProduct(@RequestParam int id) {
+		Product product = pr.findById(id);
+		pr.delete(product);
+		return "redirect:/myProducts";
 	}
 	
 	
