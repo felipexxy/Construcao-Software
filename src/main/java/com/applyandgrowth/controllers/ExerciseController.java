@@ -61,15 +61,19 @@ public class ExerciseController {
 	}
 
 	@PostMapping("/customer/worksheet/planWork")
-	public String createExercise() {
+	public String createExercise(@Valid Exercise exercise, BindingResult br, 
+	RedirectAttributes attributes) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		System.out.println("aoba");
 
-		// User user = ur.findByEmail(authentication.getName());
-		// exercise.setUser(user);
-		// exercise.setWeekDay(this.getWeekDay());
-		// ex.save(exercise);
-		return "redirect:/customer/worksheet/planWork?success";
+		if (br.hasErrors())
+			return "redirect:/customer/worksheet/planWork?error";
+		else {
+			User user = ur.findByEmail(authentication.getName());
+			exercise.setUser(user);
+			exercise.setWeekDay(this.getWeekDay());
+			ex.save(exercise);
+			return "redirect:/customer/worksheet/planWork?success";
+		}
 	}
 
     @GetMapping("/customer/worksheet/editWork")
