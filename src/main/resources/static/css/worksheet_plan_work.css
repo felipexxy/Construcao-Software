@@ -132,3 +132,27 @@ input{
     color:#C44900;
     border: solid 2px #C44900;
 }
+
+.error{
+	background-color: #D09090;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	border: solid 1px #990000;
+	padding: 10px 0 10px 10px;
+	width: 477px;
+}
+
+.sucess{
+	background-color: #86e3b6;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	border: solid 1px #248757;
+	padding: 10px 0 10px 10px;
+    width: 477px;
+}

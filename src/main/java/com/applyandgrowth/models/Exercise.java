@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name="exercises")
+@Table(name="exercises", schema="applyandgrowth")
 public class Exercise  implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -27,12 +27,11 @@ public class Exercise  implements Serializable {
     private String name;
 
     @NotBlank 
-    private int sets;
+    private String sets;
 
     @NotBlank 
-    private int reps;
+    private String reps;
 
-    @NotBlank
     private String weekDay;
 
     public String getWeekDay() {
@@ -67,19 +66,19 @@ public class Exercise  implements Serializable {
         this.name = name;
     }
 
-    public int getSets() {
+    public String getSets() {
         return sets;
     }
 
-    public void setSets(int sets) {
+    public void setSets(String sets) {
         this.sets = sets;
     }
 
-    public int getReps() {
+    public String getReps() {
         return reps;
     }
 
-    public void setReps(int reps) {
+    public void setReps(String reps) {
         this.reps = reps;
     }
     

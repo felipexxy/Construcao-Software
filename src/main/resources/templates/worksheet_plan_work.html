@@ -37,7 +37,7 @@
             </div>
             <div class="worksheep">
                 <img src="/img/icon/worksheep.png">
-                <a href="diet_adapter.html">Plan Worksheep</a>
+                <a href="/customer/worksheet">Plan Worksheep</a>
             </div>
             <div class="my_products">
                 <img src="/img/icon/products.png">
@@ -46,28 +46,28 @@
         </section>
         <div class="settings">
             <img src="/img/icon/settings.png">
-            <a href="settings.html">Settings</a>
+            <a href="/settings">Settings</a>
         </div>
     
         <div class="bg_delimiter">
             <div th:if="${param.success}">
-				<div class="sucess">Product successfully registered</div>
+				<div class="sucess">Exercise successfully registered</div>
 			</div>
 			<div th:if="${param.error}">
 				<div class="error">Check the fields</div>
 			</div>
-            <img class="delete" src="/img/icon/Delete.png">
+            <!-- <img class="delete" src="/img/icon/Delete.png"> -->
             <p class="name">Name</p>
             <p class="series">Sets</p>
             <p class="rep">Repetitions</p>
-            <h1>Tuesday</h1>
+            <!-- <h1>Tuesday</h1> -->
             <form method="post" enctype="multipart/form-data">
                 <input name="name" class="input1" type="text">
                 <input name="sets" class="input2 space" type="text">
                 <input name="reps" class="input2" type="text">
                 <button id = "save_button" type="submit" class="save">Save</button>
             </form>
-            <button id="plus_button">+</button>
+            <!-- <button id="plus_button">+</button> -->
         </div>
     </main>
 </body>

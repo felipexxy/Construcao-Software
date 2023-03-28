@@ -45,59 +45,155 @@
         </section>
         <div class="settings">
             <img src="/img/icon/settings.png">
-            <a href="settings.html">Settings</a>
+            <a href="/settings">Settings</a>
         </div>
 
         <div class="bg_delimiter">
             <div class="grid">
                 <h1>MON</h1>
-                <form th:action="@{/customer/worksheet/planWork}">
+                <form th:action="@{/customer/worksheet/planExercise}">
                     <button name = "plus_button" type="submit" value="MON">+</button>
                 </form>
-                <div th:each="exercise : ${exercises}" class="exercise">
-                    <input type="checkbox">
-                    <p class="name"><span th:text="${exercise.name}"></span></p>
-                    <p class="name"><span th:text="${product.sets}"></span></p>
-                    <p class="name"><span th:text="${product.repetitions}"></span></p>
-                    <a><img src="img/icon/edit.png"></a>
-                    <a th:href="@{'/deleteProduct?id=' + ${exercise.id}}" ><img src="img/icon/trash.png"></a>
-                </div>
             </div>
+            <div class="table">
+                <input type="checkbox">
+                <p class="tableName">NAME</p>
+                <p class="tableSets">SETS</p>
+                <p class="tableReps">REPETITIONS</p>
+            </div>
+            <div th:if="${exercise.weekDay == 'MON'}" th:each="exercise : ${exercises}" class="exercise">
+                <input type="checkbox">
+                <p class="name"><span th:text="${exercise.name}"></span></p>
+                <p class="name"><span th:text="${exercise.sets}"></span></p>
+                <p class="name"><span th:text="${exercise.reps}"></span></p>
+                <a th:href="@{'/customer/worksheet/editExercise?id=' + ${exercise.id}}"><img src="/img/icon/edit.png"></a>
+                <a th:href="@{'/customer/worksheet/deleteExercise?id=' + ${exercise.id}}"><img src="/img/icon/trash.png"></a>
+            </div>
+
             <div class="grid">
                 <h1>TUE</h1>
-                <form action="plan_work.html">
+                <form th:action="@{/customer/worksheet/planExercise}">
                     <button name = "plus_button" type="submit" value="TUE">+</button>
                 </form>
             </div>
+            <div class="table">
+                <input type="checkbox">
+                <p class="tableName">NAME</p>
+                <p class="tableSets">SETS</p>
+                <p class="tableReps">REPETITIONS</p>
+            </div>
+            <div th:if="${exercise.weekDay == 'TUE'}" th:each="exercise : ${exercises}" class="exercise">
+                <input type="checkbox">
+                <p class="name"><span th:text="${exercise.name}"></span></p>
+                <p class="name"><span th:text="${exercise.sets}"></span></p>
+                <p class="name"><span th:text="${exercise.reps}"></span></p>
+                <a th:href="@{'/customer/worksheet/editExercise?id=' + ${exercise.id}}"><img src="/img/icon/edit.png"></a>
+                <a th:href="@{'/customer/worksheet/deleteExercise?id=' + ${exercise.id}}"><img src="/img/icon/trash.png"></a>
+            </div>
+
             <div class="grid">
                 <h1>WED</h1>
-                <form action="plan_work.html">
+                <form th:action="@{/customer/worksheet/planExercise}">
                     <button name = "plus_button" type="submit" value="WED">+</button>
                 </form>
             </div>
+            <div class="table">
+                <input type="checkbox">
+                <p class="tableName">NAME</p>
+                <p class="tableSets">SETS</p>
+                <p class="tableReps">REPETITIONS</p>
+            </div>
+            <div th:if="${exercise.weekDay == 'WED'}" th:each="exercise : ${exercises}" class="exercise">
+                <input type="checkbox">
+                <p class="name"><span th:text="${exercise.name}"></span></p>
+                <p class="name"><span th:text="${exercise.sets}"></span></p>
+                <p class="name"><span th:text="${exercise.reps}"></span></p>
+                <a th:href="@{'/customer/worksheet/editExercise?id=' + ${exercise.id}}"><img src="/img/icon/edit.png"></a>
+                <a th:href="@{'/customer/worksheet/deleteExercise?id=' + ${exercise.id}}"><img src="/img/icon/trash.png"></a>
+            </div>
+
             <div class="grid">
                 <h1>THU</h1>
-                <form action="plan_work.html">
+                <form th:action="@{/customer/worksheet/planExercise}">
                     <button name = "plus_button" type="submit" value="THU">+</button>
                 </form>
             </div>
+            <div class="table">
+                <input type="checkbox">
+                <p class="tableName">NAME</p>
+                <p class="tableSets">SETS</p>
+                <p class="tableReps">REPETITIONS</p>
+            </div>
+            <div th:if="${exercise.weekDay == 'THU'}" th:each="exercise : ${exercises}" class="exercise">
+                <input type="checkbox">
+                <p class="name"><span th:text="${exercise.name}"></span></p>
+                <p class="name"><span th:text="${exercise.sets}"></span></p>
+                <p class="name"><span th:text="${exercise.reps}"></span></p>
+                <a th:href="@{'/customer/worksheet/editExercise?id=' + ${exercise.id}}"><img src="/img/icon/edit.png"></a>
+                <a th:href="@{'/customer/worksheet/deleteExercise?id=' + ${exercise.id}}"><img src="/img/icon/trash.png"></a>
+            </div>
+
             <div class="grid">
                 <h1>FRI</h1>
-                <form action="plan_work.html">
+                <form th:action="@{/customer/worksheet/planExercise}">
                     <button name = "plus_button" type="submit" value="FRI">+</button>
                 </form>
             </div>
+            <div class="table">
+                <input type="checkbox">
+                <p class="tableName">NAME</p>
+                <p class="tableSets">SETS</p>
+                <p class="tableReps">REPETITIONS</p>
+            </div>
+            <div th:if="${exercise.weekDay == 'FRI'}" th:each="exercise : ${exercises}" class="exercise">
+                <input type="checkbox">
+                <p class="name"><span th:text="${exercise.name}"></span></p>
+                <p class="name"><span th:text="${exercise.sets}"></span></p>
+                <p class="name"><span th:text="${exercise.reps}"></span></p>
+                <a th:href="@{'/customer/worksheet/editExercise?id=' + ${exercise.id}}"><img src="/img/icon/edit.png"></a>
+                <a th:href="@{'/customer/worksheet/deleteExercise?id=' + ${exercise.id}}"><img src="/img/icon/trash.png"></a>
+            </div>
+
             <div class="grid">
                 <h1>SAT</h1>
-                <form action="plan_work.html">
+                <form th:action="@{/customer/worksheet/planExercise}">
                     <button name = "plus_button" type="submit" value="SAT">+</button>
                 </form>
             </div>
+            <div class="table">
+                <input type="checkbox">
+                <p class="tableName">NAME</p>
+                <p class="tableSets">SETS</p>
+                <p class="tableReps">REPETITIONS</p>
+            </div>
+            <div th:if="${exercise.weekDay == 'SAT'}" th:each="exercise : ${exercises}" class="exercise">
+                <input type="checkbox">
+                <p class="name"><span th:text="${exercise.name}"></span></p>
+                <p class="name"><span th:text="${exercise.sets}"></span></p>
+                <p class="name"><span th:text="${exercise.reps}"></span></p>
+                <a th:href="@{'/customer/worksheet/editExercise?id=' + ${exercise.id}}"><img src="/img/icon/edit.png"></a>
+                <a th:href="@{'/customer/worksheet/deleteExercise?id=' + ${exercise.id}}"><img src="/img/icon/trash.png"></a>
+            </div>
+
             <div class="grid">
                 <h1>SUN</h1>
-                <form action="plan_work.html">
+                <form th:action="@{/customer/worksheet/planExercise}">
                     <button name = "plus_button" type="submit" value="SUN">+</button>
                 </form>
+            </div>
+            <div class="table">
+                <input type="checkbox">
+                <p class="tableName">NAME</p>
+                <p class="tableSets">SETS</p>
+                <p class="tableReps">REPETITIONS</p>
+            </div>
+            <div th:if="${exercise.weekDay == 'SUN'}" th:each="exercise : ${exercises}" class="exercise">
+                <input type="checkbox">
+                <p class="name"><span th:text="${exercise.name}"></span></p>
+                <p class="name"><span th:text="${exercise.sets}"></span></p>
+                <p class="name"><span th:text="${exercise.reps}"></span></p>
+                <a th:href="@{'/customer/worksheet/editExercise?id=' + ${exercise.id}}"><img src="/img/icon/edit.png"></a>
+                <a th:href="@{'/customer/worksheet/deleteExercise?id=' + ${exercise.id}}"><img src="/img/icon/trash.png"></a>
             </div>
         </div>
     </main>

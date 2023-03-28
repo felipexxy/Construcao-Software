@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.applyandgrowth.models.Exercise;
 import com.applyandgrowth.models.User;
@@ -26,16 +25,6 @@ public class ExerciseController {
 	@Autowired
 	private UserRepository ur;
 
-	private static String weekDay;
-
-    public String getWeekDay() {
-		return weekDay;
-	}
-
-	public void setWeekDay(String weekDay) {
-		ExerciseController.weekDay = weekDay;
-	}
-
 	@GetMapping("/customer/worksheet")
 	public ModelAndView worksheet() {
 		ModelAndView mv = new ModelAndView("worksheet");
@@ -50,51 +39,55 @@ public class ExerciseController {
 	public String deleteExercise(@RequestParam int id) {
 		Exercise exercise = ex.findById(id);
 		ex.delete(exercise);
-		return "redirect:/customer/worksheet/deleteExercise?success";
+		return "redirect:/customer/worksheet";
 	}
 
-    @GetMapping("/customer/worksheet/planWork")
-	public String planWork(@RequestParam(value="plus_button") String weekDay) {
-		this.setWeekDay(weekDay);
-
+    @GetMapping("/customer/worksheet/planExercise")
+	public String createExerciseGet() {
 		return "worksheet_plan_work";
 	}
 
-	@PostMapping("/customer/worksheet/planWork")
-	public String createExercise(@Valid Exercise exercise, BindingResult br, 
-	RedirectAttributes attributes) {
+	@PostMapping("/customer/worksheet/planExercise")
+	public String createExercisePost(@RequestParam(value="plus_button") 
+	String weekDay, @Valid Exercise exercise, BindingResult br) {
+		exercise.setWeekDay(weekDay);
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-		if (br.hasErrors())
-			return "redirect:/customer/worksheet/planWork?error";
+		if (br.hasErrors() || !isNumeric(exercise.getSets()) || !isNumeric(exercise.getReps()))
+			return "redirect:/customer/worksheet/planExercise?error" + "&plus_button=" + weekDay;
 		else {
 			User user = ur.findByEmail(authentication.getName());
 			exercise.setUser(user);
-			exercise.setWeekDay(this.getWeekDay());
 			ex.save(exercise);
-			return "redirect:/customer/worksheet/planWork?success";
+			return "redirect:/customer/worksheet";
 		}
 	}
 
-    @GetMapping("/customer/worksheet/editWork")
-	public String editWork() {
-		
+    @GetMapping("/customer/worksheet/editExercise")
+	public String editExerciseGet() {
 		return "worksheet_edit_work";
 	}
 
-	@PostMapping("/customer/worksheet/editWork")
-	public String editExercise(@Valid Exercise exercise, BindingResult br, 
-	RedirectAttributes attributes) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-		if (br.hasErrors())
-			return "redirect:/customer/worksheet/editWork?error";
+	@PostMapping("/customer/worksheet/editExercise")
+	public String editExercisePost(@RequestParam int id, @Valid Exercise exercise, BindingResult br) {
+		if (br.hasErrors() || !isNumeric(exercise.getSets()) || !isNumeric(exercise.getReps()))
+			return "redirect:/customer/worksheet/editExercise?error"  + "&id=" + id;
 		else {
-			User user = ur.findByEmail(authentication.getName());
-			exercise.setUser(user);
-			exercise.setWeekDay(this.getWeekDay());
-			ex.save(exercise);
-			return "redirect:/customer/worksheet/editWork?success";
+			Exercise exerciseSearched = ex.findById(id);
+			exerciseSearched.setName(exercise.getName());
+			exerciseSearched.setSets(exercise.getSets());
+			exerciseSearched.setReps(exercise.getReps());
+			ex.save(exerciseSearched);
+			return "redirect:/customer/worksheet";
 		}
 	}
+
+	public static boolean isNumeric(String str) { 
+		try {  
+		  Double.parseDouble(str);  
+		  return true;
+		} catch(NumberFormatException e){  
+		  return false;  
+		}  
+	  }
 }

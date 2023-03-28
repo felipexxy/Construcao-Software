@@ -1,6 +1,6 @@
 .bg_delimiter{
     width: 1120px;
-    height: 754px;
+    height: 100%;
     background: radial-gradient(102.98% 2129.71% at 0% 102.98%, rgba(20, 48, 102, 0.225) 0%, rgba(83, 83, 83, 0.24) 21.88%, rgba(229, 85, 0, 0.135) 99.48%, rgba(229, 85, 0, 0.135) 99.49%);
     border-radius: 10px;
     position: absolute;
@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    /* overflow-y: scroll; */
 }
 
 .style{
@@ -20,7 +21,7 @@
     font-weight: bold;
 }
 
-.bg_delimiter div{
+.bg_delimiter .grid{
     width: 1060px;
     height: 77px;
     background: radial-gradient(102.98% 2129.71% at 0% 102.98%, rgba(20, 48, 102, 0.225) 0%, rgba(83, 83, 83, 0.24) 21.88%, rgba(229, 85, 0, 0.135) 99.48%, rgba(229, 85, 0, 0.135) 99.49%);
@@ -77,4 +78,73 @@ h1{
     position: absolute;
     top: 330px;
     left: 260px;
+}
+
+.name{
+    font-size: 16px;
+    color: #252C32;
+    width: 180px;
+    font-weight: bold;
+}
+
+.table{
+    width: 1062px;
+    height: 40px;
+    /* padding-top: 30px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.table input{
+    margin-left: 20px;
+}
+
+.tableName{
+    margin-left: 35px;
+}
+
+.tableSets{
+    margin-left: 90px;
+}
+
+.tableReps{
+    margin-left: 65px;
+}
+
+.name_categorie{
+    margin-left: 173px;
+    margin-right: 145px;
+}
+
+.exercise{
+    width: 1062px;
+    height: 40px;
+    border-top: 2px solid white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.exercise input, .table input{
+    width: 16px;
+    height: 16px;
+}
+
+.table input{
+    margin-left: 42px;
+}
+
+.tableName{
+    margin-left: 75px;
+}
+
+.tableSets{
+    margin-left: 210px;
+}
+
+.tableReps{
+    margin-left: 220px;
 }

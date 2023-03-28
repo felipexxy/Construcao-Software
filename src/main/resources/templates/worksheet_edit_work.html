@@ -51,7 +51,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     
         <div class="bg_delimiter">
             <div th:if="${param.success}">
-				<div class="sucess">Product successfully registered</div>
+				<div class="sucess">Exercise successfully edited</div>
 			</div>
 			<div th:if="${param.error}">
 				<div class="error">Check the fields</div>
@@ -60,7 +60,6 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
             <p class="name">Name</p>
             <p class="series">Sets</p>
             <p class="rep">Repetitions</p>
-            <h1>Tuesday</h1>
             <form method="post" enctype="multipart/form-data">
                 <input name="name" class="input1" type="text">
                 <input name="sets" class="input2 space" type="text">

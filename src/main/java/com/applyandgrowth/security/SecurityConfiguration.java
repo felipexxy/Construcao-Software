@@ -54,8 +54,7 @@ public class SecurityConfiguration {
                     "/recover/**",
                     "/",
                     "/settings",
-                    "/status",
-                    "/planWork").permitAll()
+                    "/status").permitAll()
                 .requestMatchers(
                     "/customer/**").hasRole("CUSTOMER")
                 .requestMatchers(
