@@ -2,9 +2,9 @@ package com.applyandgrowth.controllers;
 
 import jakarta.validation.Valid;
 
-import com.applyandgrowth.web.dto.UserDto;
 import com.applyandgrowth.models.User;
-import com.applyandgrowth.services.UserService;
+import com.applyandgrowth.security.UserDto;
+import com.applyandgrowth.security.UserService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,4 +63,29 @@ public class AuthController {
         userService.save(userDto);
         return "redirect:/register?success";
     }
+
+    @GetMapping(value="/recover/enterEmail")
+	public String recoverPassword1() {
+		return "recover_password";
+	}
+
+	@GetMapping(value="/recover/verifyEmail")
+	public String recoverPassword2() {
+		return "recover_password_2";
+	}
+
+	@GetMapping(value="/recover/changePassword")
+	public String recoverPassword3() {
+		return "recover_password_3";
+	}
+
+	@GetMapping("/settings")
+	public String settings() {
+		return "settings";
+	}
+	
+	@GetMapping("/status")
+	public String status() {
+		return "status-client";
+	}
 }

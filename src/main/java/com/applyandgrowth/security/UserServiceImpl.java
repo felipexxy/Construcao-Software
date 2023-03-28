@@ -1,4 +1,4 @@
-package com.applyandgrowth.services;
+package com.applyandgrowth.security;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +11,6 @@ import com.applyandgrowth.models.Role;
 import com.applyandgrowth.models.User;
 import com.applyandgrowth.repository.RoleRepository;
 import com.applyandgrowth.repository.UserRepository;
-import com.applyandgrowth.web.dto.UserDto;
 
 @Service
 public class UserServiceImpl implements UserService {

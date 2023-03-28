@@ -1,6 +1,5 @@
-package com.applyandgrowth.services;
+package com.applyandgrowth.security;
 
-import com.applyandgrowth.web.dto.UserDto;
 import com.applyandgrowth.models.User;
 
 import java.util.List;

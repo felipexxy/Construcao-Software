@@ -1,4 +1,4 @@
-package com.applyandgrowth.web.dto;
+package com.applyandgrowth.security;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;

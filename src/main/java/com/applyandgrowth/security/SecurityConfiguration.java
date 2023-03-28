@@ -1,4 +1,4 @@
-package com.applyandgrowth.config;
+package com.applyandgrowth.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,8 +15,6 @@ import org.springframework.security.web.authentication.RememberMeServices;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices.RememberMeTokenAlgorithm;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import com.applyandgrowth.web.MySimpleUrlAuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -46,32 +44,35 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, RememberMeServices rememberMeServices) throws Exception {
         http.csrf().disable()
-			.authorizeHttpRequests((authorize) -> authorize.requestMatchers(
-                "/login/**",
-                "/register/**",
-                "/js/**",
-                "/css/**",
-                "/img/**",
-                "/recover/**",
-                "/").permitAll()
-                .requestMatchers("/settings").permitAll()
-                .requestMatchers("/status").permitAll()
-                .requestMatchers("/customer/**").hasRole("CUSTOMER")
-                .requestMatchers("/advertiser/**").hasRole("ADVERTISER")
-                .requestMatchers("/createSale/**").hasRole("ADVERTISER")
-                .requestMatchers("/myProducts/**").hasRole("ADVERTISER")
-                .requestMatchers("/deleteProduct/**").hasRole("ADVERTISER")
-
-			).formLogin(
+			.authorizeHttpRequests((authorize) -> authorize.
+                requestMatchers(
+                    "/login/**",
+                    "/register/**",
+                    "/js/**",
+                    "/css/**",
+                    "/img/**",
+                    "/recover/**",
+                    "/",
+                    "/settings",
+                    "/status",
+                    "/planWork").permitAll()
+                .requestMatchers(
+                    "/customer/**").hasRole("CUSTOMER")
+                .requestMatchers(
+                    "/advertiser/**",
+                    "/createSale/**",
+                    "/myProducts/**",
+                    "/deleteProduct/**").hasRole("ADVERTISER"))
+            .formLogin(
 				form -> form
 					.loginPage("/login")
 					.loginProcessingUrl("/login")
                     .successHandler(myAuthenticationSuccessHandler())
-					.permitAll()
-			).logout(logout -> logout
+					.permitAll())
+            .logout(logout -> logout
 					.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-					.permitAll()
-			).rememberMe((remember) -> remember
+					.permitAll())
+            .rememberMe((remember) -> remember
                 .rememberMeServices(rememberMeServices)
             );
 

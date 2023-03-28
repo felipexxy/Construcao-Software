@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Worksheep - A&G</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/header_main.css">
+    <link rel="stylesheet" href="/css/worksheet_plan_work.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="/img/icon/logo_white.png">
+        <input type="text" placeholder="Search ...">
+        <div class="user">
+            <img class="user_icon" src="/img/icon/notification.png">
+            <img class="user_icon" src="/img/icon/user_white.png">
+            <p>Welcome,<br>User</p>
+        </div>
+    </header>
+    <p class="style">Plan Worksheep  > Add Workheet</p>
+    <img class="marcation" src="/img/icon/marcation.png">
+    <main>
+        <section class="navegation">
+            <div class=home>
+                <img src="/img/icon/dashboard.png">
+                <a href="index.html">Home</a>
+            </div>
+            <div class="diet">
+                <img src="/img/icon/diet.png">
+                <a href="diet.html">Diet</a>
+            </div>
+            <div class="worksheep">
+                <img src="/img/icon/worksheep.png">
+                <a href="diet_adapter.html">Plan Worksheep</a>
+            </div>
+            <div class="my_products">
+                <img src="/img/icon/products.png">
+                <a href="my_products.html">My Products</a>
+            </div>
+        </section>
+        <div class="settings">
+            <img src="/img/icon/settings.png">
+            <a href="settings.html">Settings</a>
+        </div>
+    
+        <div class="bg_delimiter">
+            <div th:if="${param.success}">
+				<div class="sucess">Product successfully registered</div>
+			</div>
+			<div th:if="${param.error}">
+				<div class="error">Check the fields</div>
+			</div>
+            <img class="delete" src="/img/icon/Delete.png">
+            <p class="name">Name</p>
+            <p class="series">Sets</p>
+            <p class="rep">Repetitions</p>
+            <h1>Tuesday</h1>
+            <form method="post" enctype="multipart/form-data">
+                <input name="name" class="input1" type="text">
+                <input name="sets" class="input2 space" type="text">
+                <input name="reps" class="input2" type="text">
+                <button id = "save_button" type="submit" class="save">Save</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

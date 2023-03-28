@@ -1,4 +1,4 @@
-package com.applyandgrowth.services;
+package com.applyandgrowth.security;
 
 import com.applyandgrowth.models.Role;
 import com.applyandgrowth.models.User;

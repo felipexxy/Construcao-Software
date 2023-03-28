@@ -1,4 +1,4 @@
-package com.applyandgrowth.web;
+package com.applyandgrowth.security;
 
 import java.io.IOException;
 import java.util.Collection;
