@@ -49,12 +49,15 @@
                 <a class="button"><img src="img/icon/Vector.png"> Filter</a>
                 <a class="button"><img src="img/icon/Arrow up.png">Export</a>
                 <form th:action="@{/createSale}">
-                    <button type="submit">+ Create Sale</button>
+                    <button type="submit">+ Add Product</button>
                 </form>
             </div>
            
             <p class="in_progress">Advertised Products</p>
-            <div class="grid">
+		<div th:if="${param.error}">
+			<div class="error">Error: Edited product had invalid fields!</div>
+		</div>
+		<div class="grid">
                 <div class="table">
                     <input type="checkbox">
                     <p class="value">VALUE</p>
@@ -63,7 +66,7 @@
                     <p class="name_categorie">CATEGORIE</p>
                     <p>PUBLISH DATE</p>
                 </div>
-                
+
                 <div th:each="product : ${products}" class="product">
                     <input type="checkbox">
                     <p class="price"><span th:text="${product.price}"></span></p>
@@ -71,8 +74,8 @@
                     <p class="name"><span th:text="${product.title}"></span></p>
                     <p class="name"><span th:text="${product.category}"></span></p>
                     <p class="name"><span th:text="${product.dateAndTime}"></span></p>
-                    <a><img src="img/icon/edit.png"></a>
-                    <a th:href="@{'/deleteProduct?id=' + ${product.id}}" ><img src="img/icon/trash.png"></a>
+                    <a th:href="@{'/editSale?id=' + ${product.id}}"><img src="img/icon/edit.png"></a>
+                    <a th:href="@{'/deleteProduct?id=' + ${product.id}}"><img src="img/icon/trash.png"></a>
                 </div>
             </div>
 	

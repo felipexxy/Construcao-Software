@@ -97,6 +97,10 @@ public class Product implements Serializable{
 		this.dateAndTime = date + " " + time;
 	}
 	
+	public void setOldDataAndTime(String dataAndTime) {
+		this.dateAndTime = dataAndTime;
+	}
+	
 	
 	
 	

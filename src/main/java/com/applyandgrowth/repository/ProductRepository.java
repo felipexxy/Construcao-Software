@@ -10,7 +10,7 @@ public interface ProductRepository extends CrudRepository<Product, Long>{
 	
     Iterable<Product> findByUser_id(Long i);  
     
-    Product findById (int id);
+    Product findById (long id);
     
 }
 

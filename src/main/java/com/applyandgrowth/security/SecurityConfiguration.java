@@ -61,6 +61,7 @@ public class SecurityConfiguration {
                     "/advertiser/**",
                     "/createSale/**",
                     "/myProducts/**",
+                    "/editSale/**",
                     "/deleteProduct/**").hasRole("ADVERTISER"))
             .formLogin(
 				form -> form

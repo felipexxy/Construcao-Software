@@ -125,24 +125,24 @@ form{
 .delimiter{
 	display: flex;
 	flex-direction: row;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
 .space{
 	margin-right: 20px;
 }
 
-.save{
-        background-color: #C44900;
-        width: 240px;
-        height: 55px;
-        border: 2px solid white;
-        border-radius: 8px;
-        color: white;
-        font-size: 20px;
-        margin-top: 25px;
-        cursor: pointer;
-        transition: .3s;
+.save {
+	background-color: #C44900;
+	width: 168px;
+	height: 55px;
+	border: 2px solid white;
+	border-radius: 8px;
+	color: white;
+	font-size: 20px;
+	margin-top: 40px;
+	cursor: pointer;
+	transition: .3s;
 }
 
 .error{
@@ -173,4 +173,10 @@ form{
     position: absolute;
     top: 345px;
     left: 260px;
+}
+
+form button:hover{
+    background-color: white;
+    color:#C44900;
+    border: solid 2px #C44900;
 }
