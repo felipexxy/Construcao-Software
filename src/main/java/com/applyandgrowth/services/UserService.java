@@ -10,5 +10,7 @@ public interface UserService {
 
     User findUserByEmail(String email);
 
+    void setPassword(String email, String password);  
+
     List<UserDto> findAllUsers();
 }

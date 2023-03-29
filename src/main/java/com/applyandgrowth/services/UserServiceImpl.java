@@ -64,4 +64,14 @@ public class UserServiceImpl implements UserService {
         userDto.setEmail(user.getEmail());
         return userDto;
     }
+    @Override
+    public void setPassword(String email, String password) {
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+            user.setPassword(passwordEncoder.encode(password));
+            userRepository.save(user);
+        } else {
+            throw new IllegalArgumentException("User not found");
+        }
+    }
 }
