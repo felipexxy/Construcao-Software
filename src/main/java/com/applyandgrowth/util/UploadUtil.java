@@ -16,7 +16,7 @@ public class UploadUtil {
             String nomeArquivo = imagem.getOriginalFilename();
             try {
 
-                String pastaUploadImagem = "src//main//img-uploads";
+                String pastaUploadImagem = "src//main//resources//static//img//img-uploads";
                 File dir = new File(pastaUploadImagem);
                 if(!dir.exists()){
                     dir.mkdirs();

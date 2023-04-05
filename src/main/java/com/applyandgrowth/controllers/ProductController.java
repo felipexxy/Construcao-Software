@@ -102,5 +102,14 @@ public class ProductController {
 			return "redirect:/createSale?success";
 		}
 	}
+	
+	@GetMapping("/productInfo")
+	public ModelAndView descProduct(@RequestParam int id) {
+		ModelAndView mv = new ModelAndView("products_info");
+		Product products = pr.findById(id);
+		mv.addObject("products", products);
+		return mv;
+	}
+
 
 }

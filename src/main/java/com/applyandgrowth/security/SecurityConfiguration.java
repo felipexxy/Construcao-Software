@@ -52,6 +52,7 @@ public class SecurityConfiguration {
                     "/css/**",
                     "/img/**",
                     "/recover/**",
+                    "/productInfo/**",
                     "/",
                     "/settings",
                     "/status").permitAll()

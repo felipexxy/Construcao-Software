@@ -1,22 +1,28 @@
 package com.applyandgrowth.controllers;
 
-import jakarta.validation.Valid;
-
-import com.applyandgrowth.models.User;
-import com.applyandgrowth.security.UserDto;
-import com.applyandgrowth.security.UserService;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.applyandgrowth.models.Product;
+import com.applyandgrowth.models.User;
+import com.applyandgrowth.repository.ProductRepository;
+import com.applyandgrowth.security.UserDto;
+import com.applyandgrowth.security.UserService;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class AuthController {
 
     private UserService userService;
+	@Autowired
+    private ProductRepository pr;
 
     public AuthController(UserService userService) {
         this.userService = userService;
@@ -28,13 +34,20 @@ public class AuthController {
     }
 
     @GetMapping("/customer")
-    public String indexCustomer(){
-        return "index";
+    public ModelAndView indexCustomer(){
+		ModelAndView mv = new ModelAndView("index");
+        Iterable<Product> products = pr.findAll();
+		mv.addObject("products", products);
+		return mv;
     }
 
+
     @GetMapping("/advertiser")
-    public String indexAdvertiser(){
-        return "index_advertiser";
+    public ModelAndView indexAdvertiser(){
+		ModelAndView mv = new ModelAndView("index_advertiser");
+        Iterable<Product> products = pr.findAll();
+		mv.addObject("products", products);
+		return mv;
     }
 
     @GetMapping("/register")
