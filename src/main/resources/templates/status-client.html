@@ -51,7 +51,7 @@
             </section>
             <div class="log_out">
                 <img src="img/icon/log_out.png">
-                <a href="login.html">Log Out</a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/logout}">Log out</a>
             </div>
         </section>
         <section class="content">

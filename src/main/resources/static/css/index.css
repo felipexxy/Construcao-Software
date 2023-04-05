@@ -10,6 +10,16 @@
     margin: 40px auto 20px auto;
 }
 
+.navegation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%
+  }
+  .navegation div {
+    margin: 20px 0; /* ou outras medidas para margem */
+  }
+
 .categories a{
     margin-left: 20px;
 }

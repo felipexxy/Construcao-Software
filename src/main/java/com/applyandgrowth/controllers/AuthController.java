@@ -1,6 +1,14 @@
 package com.applyandgrowth.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import jakarta.validation.Valid;
+
+import com.applyandgrowth.models.User;
+import com.applyandgrowth.security.UserDto;
+import com.applyandgrowth.security.UserService;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,13 +24,21 @@ import com.applyandgrowth.security.UserDto;
 import com.applyandgrowth.security.UserService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class AuthController {
 
     private UserService userService;
+
 	@Autowired
     private ProductRepository pr;
+
+    private UserService er;
+
 
     public AuthController(UserService userService) {
         this.userService = userService;
@@ -91,7 +107,7 @@ public class AuthController {
 	public String recoverPassword3() {
 		return "recover_password_3";
 	}
-
+	
 	@GetMapping("/settings")
 	public String settings() {
 		return "settings";
@@ -100,5 +116,23 @@ public class AuthController {
 	@GetMapping("/status")
 	public String status() {
 		return "status-client";
+	}
+
+
+    @PostMapping("/recover/enterEmail")
+	public ResponseEntity<String> sendPasswordResetLink(@RequestParam("email") String email) {
+    // lógica para enviar o e-mail
+    return ResponseEntity.ok().build();
+}
+
+	@RequestMapping(value = "/recover/changePassword", method=RequestMethod.POST)
+	public String changepassword(String email, String password, String confirmPassword){
+		if (!confirmPassword.equals(password)) {
+			// Retorna a página do formulário com uma mensagem de erro
+			return "recover_password_form";
+		}
+		er.setPassword(email, password);
+
+		return "redirect:/recover_password_3";
 	}
 }
