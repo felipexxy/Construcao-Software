@@ -107,17 +107,6 @@ public class AuthController {
 	public String recoverPassword3() {
 		return "recover_password_3";
 	}
-	
-	@GetMapping("/settings")
-	public String settings() {
-		return "settings";
-	}
-	
-	@GetMapping("/status")
-	public String status() {
-		return "status-client";
-	}
-
 
     @PostMapping("/recover/enterEmail")
 	public ResponseEntity<String> sendPasswordResetLink(@RequestParam("email") String email) {
