@@ -32,17 +32,16 @@
 
 button{
     background-color: #C44900;
-    width: 35px;
-    height: 35px;
-    border: 2px solid white;
+    height: 40.58px;
+    border: 1px solid white;
     border-radius: 8px;
     color: white;
     font-size: 20px;
     margin-top: 25px;
+    box-shadow: 0px 6px 8px rgba(71, 71, 71, 0.3500);
     cursor: pointer;
     transition: .3s;
-    margin-bottom: 20px;
-    margin-right: 20px;
+    margin: 20px;
 }
 
 button:hover{
@@ -98,19 +97,19 @@ h1{
 }
 
 .table input{
-    margin-left: 20px;
+    margin-left: 77px;
 }
 
 .tableName{
-    margin-left: 35px;
+    margin-left: 120px;
 }
 
-.tableSets{
-    margin-left: 90px;
+.tableGrams{
+    margin-left: 260px;
 }
 
-.tableReps{
-    margin-left: 65px;
+.tableTime{
+    margin-left: 260px;
 }
 
 .name_categorie{
@@ -118,7 +117,7 @@ h1{
     margin-right: 145px;
 }
 
-.exercise{
+.meal{
     width: 1062px;
     height: 40px;
     border-top: 2px solid white;
@@ -128,29 +127,4 @@ h1{
     align-items: center;
     padding-bottom: 30px;
     margin-left: 10px;
-}
-
-.exercise input, .table input{
-    width: 16px;
-    height: 16px;
-}
-
-.table input{
-    margin-left: 33px;
-}
-
-.tableName{
-    margin-left: 30px;
-}
-
-.tableSets{
-    margin-left: 175px;
-}
-
-.tableReps{
-    margin-left: 190px;
-}
-
-.tableWeight{
-    margin-left: 125px;
 }

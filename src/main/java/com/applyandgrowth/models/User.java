@@ -75,6 +75,8 @@ public class User {
         return false;
     }
 
+	private String dietType;
+
 	public long getId() {
 		return id;
 	}
@@ -147,5 +149,12 @@ public class User {
 		this.roles = roles;
 	}
 	
+	public String getDietType() {
+		return dietType;
+	}
+
+	public void setDietType(String dietType) {
+		this.dietType = dietType;
+	}
 	
 }

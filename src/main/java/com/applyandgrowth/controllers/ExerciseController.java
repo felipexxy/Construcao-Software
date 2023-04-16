@@ -53,7 +53,7 @@ public class ExerciseController {
 		exercise.setWeekDay(weekDay);
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-		if (br.hasErrors() || !isNumeric(exercise.getSets()) || !isNumeric(exercise.getReps()))
+		if (br.hasErrors() || !isPositiveInt(exercise.getSets()) || !isPositiveInt(exercise.getReps()) || !isPositiveInt(exercise.getWeight()))
 			return "redirect:/customer/worksheet/planExercise?error" + "&plus_button=" + weekDay;
 		else {
 			User user = ur.findByEmail(authentication.getName());
@@ -70,24 +70,28 @@ public class ExerciseController {
 
 	@PostMapping("/customer/worksheet/editExercise")
 	public String editExercisePost(@RequestParam int id, @Valid Exercise exercise, BindingResult br) {
-		if (br.hasErrors() || !isNumeric(exercise.getSets()) || !isNumeric(exercise.getReps()))
+		if (br.hasErrors() || !isPositiveInt(exercise.getSets()) || !isPositiveInt(exercise.getReps()) || !isPositiveInt(exercise.getWeight()))
 			return "redirect:/customer/worksheet/editExercise?error"  + "&id=" + id;
 		else {
 			Exercise exerciseSearched = ex.findById(id);
 			exerciseSearched.setName(exercise.getName());
 			exerciseSearched.setSets(exercise.getSets());
 			exerciseSearched.setReps(exercise.getReps());
+			exerciseSearched.setWeight(exercise.getWeight());
 			ex.save(exerciseSearched);
 			return "redirect:/customer/worksheet";
 		}
 	}
 
-	public static boolean isNumeric(String str) { 
+	public static boolean isPositiveInt(String str) { 
 		try {  
-		  Double.parseDouble(str);  
-		  return true;
+		  if(Double.parseDouble(str) < 0) {
+			return false;
+		  }  
 		} catch(NumberFormatException e){  
 		  return false;  
 		}  
+
+		return true;
 	  }
 }

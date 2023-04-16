@@ -32,6 +32,9 @@ public class Exercise  implements Serializable {
     @NotBlank 
     private String reps;
 
+    @NotBlank 
+    private String weight;
+
     private String weekDay;
 
     public String getWeekDay() {
@@ -80,6 +83,14 @@ public class Exercise  implements Serializable {
 
     public void setReps(String reps) {
         this.reps = reps;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
     
 }

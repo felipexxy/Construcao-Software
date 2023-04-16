@@ -87,7 +87,7 @@ input{
     margin-right: 50px;
 }
 
-.name, .series, .rep{
+.name, .series, .rep, .weight{
     position: absolute;
     font-size: 12px;
     font-weight: bold;
@@ -104,6 +104,10 @@ input{
 
 .rep{
     left: 525px;
+}
+
+.weight{
+    left: 690px;
 }
 
 .delete{

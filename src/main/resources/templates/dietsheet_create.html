@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Dietsheet - A&G</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/header_main.css">
+    <link rel="stylesheet" href="/css/dietsheet_create.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="/img/icon/logo_white.png">
+        <input type="text" placeholder="Search ...">
+        <div class="user">
+            <img class="user_icon" src="/img/icon/notification.png">
+            <img class="user_icon" src="/img/icon/user_white.png">
+            <p>Welcome,<br>User</p>
+        </div>
+    </header>
+    <p class="style">Diet  > Plan Diet Form</p>
+    <img class="marcation" src="/img/icon/marcation.png">
+    <main>
+        <section class="navegation">
+			<div class=home>
+				<img src="/img/icon/dashboard.png"> <a th:href="@{/customer}">Home</a>
+			</div>
+			<div class="diet">
+				<img src="/img/icon/diet.png"> <a th:href="@{/customer/diet}">Diet</a>
+			</div>
+			<div class="worksheet">
+				<img src="/img/icon/worksheep.png"> <a
+					th:href="@{/customer/worksheet}">Plan Worksheet</a>
+			</div>
+			<div class="my_products">
+				<img src="/img/icon/products.png"> <a th:href="@{/myProducts}">My
+					Products</a>
+			</div>
+		</section>
+		<div class="settings">
+			<img src="/img/icon/settings.png"> <a href="/settings">Settings</a>
+		</div>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="bg_delimiter">
+                <div th:if="${param.error}">
+                    <div class="error">Check the fields</div>
+                </div>
+
+                <div class="measure">
+                    <div>
+                        <p>Age</p>
+                        <input type="text" placeholder="22">
+                    </div>
+                    <div>
+                        <p>Height</p>
+                        <input name="height" type="text" placeholder="meters">
+                    </div>
+                    <div>
+                        <p>Weight</p>
+                        <input name="weight" type="text" placeholder="kg">
+                    </div>
+                </div>
+                <div class="info">
+                    <div>
+                        <p>What is your goal ?</p>
+                        <input class="max" type="text" placeholder="...">
+                    </div>
+                    <div>
+                        <p>What is your weight goal?</p>
+                        <input class="text" type="text" placeholder="0">
+                    </div>
+                    <div>
+                        <p>How many meals daily?</p>
+                        <input class="text distance" type="text" placeholder="0">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="save">Generate</button>
+        </form>
+    </main>
+</body>
+</html>
