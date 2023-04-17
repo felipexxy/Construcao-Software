@@ -54,6 +54,8 @@ public class SecurityConfiguration {
                     "/recover/**",
                     "/productInfo/**",
                     "/",
+                    "/sending-email",
+                    "/sending-link",
                     "/settings",
                     "/status").permitAll()
                 .requestMatchers(

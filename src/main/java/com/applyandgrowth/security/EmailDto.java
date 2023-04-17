@@ -2,21 +2,21 @@ package com.applyandgrowth.security;
 
 import lombok.Data;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-
+import jakarta.validation.constraints.NotBlank;
 
 @Data
 public class EmailDto {
 
-    @NotEmpty
+    @NotBlank
+    private String ownerRef;
+    @NotBlank
     @Email
     private String emailFrom;
-    @NotEmpty
-    @NotEmpty(message = "Email should not be empty")
+    @NotBlank
+    @Email
     private String emailTo;
-    @NotEmpty
+    @NotBlank
     private String subject;
-    @NotEmpty
+    @NotBlank
     private String text;
-
 }

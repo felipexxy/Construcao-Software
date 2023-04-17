@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.Valid;
 
 import com.applyandgrowth.models.User;
+import com.applyandgrowth.security.EmailDto;
 import com.applyandgrowth.security.UserDto;
 import com.applyandgrowth.security.UserService;
 
@@ -35,6 +36,8 @@ public class AuthController {
     private UserService userService;
 
 	@Autowired
+    private EmailController emailController;
+    
     private ProductRepository pr;
 
     private UserService er;
@@ -98,21 +101,26 @@ public class AuthController {
 		return "recover_password";
 	}
 
-	@GetMapping(value="/recover/verifyEmail")
-	public String recoverPassword2() {
+    @PostMapping(value="/recover/verifyEmail")
+	public String verifyEmail(@RequestParam("email") String email, Model model){
+        User existingUser = userService.findUserByEmail(email);
+        EmailDto emailDto = new EmailDto();
+        
+        if(existingUser == null){
+            model.addAttribute("error", "Email not registered");
+            return "redirect:/recover/enterEmail?error";
+        }
+        emailDto.setOwnerRef("Recover Password");
+        emailDto.setEmailFrom("construcaodesoftware@gmail.com");
+        emailDto.setEmailTo(existingUser.getEmail());
+        emailDto.setSubject("Recuperação de Senha - Apply and Growth");
+        emailDto.setText("Email de teste para verificar funcionamento do microserviço");
+        
+        emailController.sendingEmail(emailDto);
+
 		return "recover_password_2";
 	}
 
-	@GetMapping(value="/recover/changePassword")
-	public String recoverPassword3() {
-		return "recover_password_3";
-	}
-
-    @PostMapping("/recover/enterEmail")
-	public ResponseEntity<String> sendPasswordResetLink(@RequestParam("email") String email) {
-    // lógica para enviar o e-mail
-    return ResponseEntity.ok().build();
-}
 
 	@RequestMapping(value = "/recover/changePassword", method=RequestMethod.POST)
 	public String changepassword(String email, String password, String confirmPassword){
@@ -124,4 +132,5 @@ public class AuthController {
 
 		return "redirect:/recover_password_3";
 	}
+    
 }
