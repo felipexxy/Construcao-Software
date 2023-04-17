@@ -1,0 +1,116 @@
+.categories{
+    width: 1120px;
+    height: 62px;
+    background: radial-gradient(102.98% 2129.71% at 0% 102.98%, rgba(20, 48, 102, 0.225) 0%, rgba(83, 83, 83, 0.24) 21.88%, rgba(229, 85, 0, 0.135) 99.48%, rgba(229, 85, 0, 0.135) 99.49%);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    box-shadow: -5px 5px 10px rgb(71, 71, 71);
+    margin: 40px auto 20px auto;
+}
+
+.navegation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%
+  }
+  .navegation div {
+    margin: 20px 0; /* ou outras medidas para margem */
+  }
+
+.categories a{
+    margin-left: 20px;
+}
+
+.group{
+    display: flex;
+}
+
+
+.style{
+    position: absolute;
+    left: 300px;
+    top: 83px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.groups{
+    width: 800px;
+    height: 530px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.marcation{
+    position: absolute;
+    top: 145px;
+    left: 260px;
+}
+
+
+.space{
+    margin-top: 10px;
+}
+
+.product-delimiter{
+	background: radial-gradient(98.55% 98.53% at 1.99% 100%, rgba(0, 0, 0, 0.15) 0%, rgba(175, 175, 175, 0.132487) 72.1%, rgba(255, 92, 0, 0.15) 100%);
+	width: 225px;
+	height: 284px;
+	border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    margin: 25px;
+    box-shadow: 0px 6px 8px rgba(71, 71, 71, 0.3500);
+}
+
+.product-delimiter:hover{
+	border: 2px solid rgba(0, 0, 0, 0.15);
+    background: radial-gradient(131.84% 291.64% at -12.3% 113.42%, rgba(224, 226, 230, 0.75) 0%, rgba(235, 174, 138, 0.43) 64.58%);
+	box-shadow: 0px 6px 8px rgba(71, 71, 71, 0.3500);
+}
+
+
+.product-img{
+	width: 225px;
+	height:173px;
+	background-color:white;
+	object-fit:contain;
+	border-radius: 10px 10px 0px 0px;
+}
+
+.product-name{
+	color:white;
+	font-size: 22px;
+	background-color: rgba(255, 142, 76, 0.9);
+	padding: 5px;
+	border-radius: 10px;
+	border: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.product-price{
+	color: rgba(72, 72, 72, 1);
+	font-size: 16px;
+}
+
+.product-delimiter p{
+	text-align:left;
+	font-weight: bold;
+    color: rgba(72, 72, 72, 1);
+	font-size: 16px;
+	margin-top: 22px;
+	margin-left: 15px;
+}
+.delimiter-all{
+    background: radial-gradient(102.98% 2129.71% at 0% 102.98%, rgba(20, 48, 102, 0.225) 0%, rgba(83, 83, 83, 0.24) 21.88%, rgba(229, 85, 0, 0.135) 99.48%, rgba(229, 85, 0, 0.135) 99.49%);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 1120px;
+	
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - A&G</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header_main.css">
+    <link rel="stylesheet" href="css/products_info.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="img/icon/logo_white.png">
+        <input type="text" placeholder="Search ...">
+        <div class="user">
+            <img class="user_icon" src="img/icon/notification.png">
+            <img class="user_icon" src="img/icon/user_white.png">
+            <p id="welcome_user">Welcome,<br><span sec:authentication="principal.username">User</span></p>
+        </div>
+    </header>
+    <main>
+        <section class="navegation">
+            <div class=home>
+                <img src="img/icon/dashboard.png">
+                <a th:href="@{/customer}">Home</a>
+            </div>
+            <div class="diet">
+                <img src="img/icon/diet.png">
+                <a href="diet.html">Diet</a>
+            </div>
+			<div class="worksheet">
+				<img src="img/icon/worksheep.png"> <a
+					th:href="@{/customer/worksheet}">Plan Worksheet</a>
+			</div>
+            <div class="my_products">
+                <img src="img/icon/products.png">
+                <a href="my_products.html">My Products</a>
+            </div>
+        </section>
+        <div class="settings">
+            <img src="img/icon/settings.png">
+            <a href="/settings">Settings</a>
+        </div>
+        <div class="categories">
+            <a href="all_products.html"><img src="img/icon/categories/Cloth_Hotbar.png"></a>
+            <a href="all_products.html"><img src="img/icon/categories/Shorts_Hotbar.png"></a>
+            <a href="all_products.html"><img src="img/icon/categories/Shoes_Hotbar.png"></a>
+            <a href="all_products.html"><img src="img/icon/categories/Cap_Hotbar.png"></a>
+            <a href="all_products.html"><img src="img/icon/categories/Socks_Hotbar.png"></a>
+            <a href="all_products.html"><img src="img/icon/categories/Whey_Hotbar.png"></a>
+            <a href="all_products.html"><img src="img/icon/categories/Shake_Hotbar.png"></a>
+        </div>
+        
+        <div class="delimiter" th:each="product : ${products}">
+            <p class="category">Home > Categories > Suplements</p>
+            <div class="product-img">
+            <img th:src="'../img/img-uploads/' + ${product.img}" class="product-min">
+        	<img th:src="'../img/img-uploads/' + ${product.img}" class="product-max">
+        	</div>
+        	<p class="description">Description</p>
+        	<p class="product-desc"><span th:text="${product.description}"></span></p>
+        	<p class="product-name"><span th:text="${product.title}"></span></p>
+        	<div class="reviews">
+        	<img src="img/icon/categories/Star.png" style="width: 80px; height: 20px;">
+        	<p>157 Reviews</p>
+        	</div>
+        	<p class="product-price">R$ <span th:text="${product.price}"></span></p>
+            <p class="tag-info"> <img style="margin-right: 5px;" src="img/icon/categories/tag.png"> Save 10% right now, using a cupom</p>
+        	<p style="font-weight: bold; margin-top: 20px; color: black;">Category: <span th:text="${product.category}"></span></p>
+        	<button style="margin-top: 87px;" type="submit">Add to cart</button>
+		<div class="information">
+			<div>
+				<img src="img/icon/earth.png">
+				<p>Free shipping worldwide</p>
+			</div>
+			<div>
+				<img src="img/icon/card_small.png">
+				<p>100% Secured Payment</p>
+			</div>
+			<div>
+				<img src="img/icon/user_small.png">
+				<p>Made by the Professionals</p>
+			</div>
+		</div>
+	</div>
+
+    </main>
+</body>
+</html>

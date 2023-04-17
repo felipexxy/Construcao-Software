@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Advertiser - A&G</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header_advertiser.css">
+    <link rel="stylesheet" href="css/index_advertiser.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="img/icon/logo_white.png">
+        <input type="text" placeholder="Search ...">
+        <div class="user">
+            <img class="user_icon" src="img/icon/notification.png">
+            <img class="user_icon" src="img/icon/user_white.png">
+            <p id="welcome_user">Welcome,<br><span sec:authentication="principal.username">User</span></p>
+        </div>
+    </header>
+    <p class="style">Categories</p>
+    <img class="marcation" src="img/icon/marcation.png">
+    <main>
+	<section class="group">
+		<section class="navegation">
+			<div class=home>
+				<img src="img/icon/dashboard.png"> <a th:href="@{/advertiser}">Home</a>
+			</div>
+			<div class="my_sales">
+				<img src="img/icon/products.png"> <a href="my_sales.html">My
+					Sales</a>
+			</div>
+			<div class="my_products">
+				<img src="img/icon/products.png"> <a href="/myProducts">My
+					Products</a>
+			</div>
+		</section>
+		<div class="settings">
+			<img src="img/icon/settings.png"> <a th:href="@{/settings}">Settings</a>
+		</div>
+		<section>
+			<div class="categories">
+				<a href="all_products.html"><img
+					src="img/icon/categories/Cloth_Hotbar.png"></a> <a
+					href="all_products.html"><img
+					src="img/icon/categories/Shorts_Hotbar.png"></a> <a
+					href="all_products.html"><img
+					src="img/icon/categories/Shoes_Hotbar.png"></a> <a
+					href="all_products.html"><img
+					src="img/icon/categories/Cap_Hotbar.png"></a> <a
+					href="all_products.html"><img
+					src="img/icon/categories/Socks_Hotbar.png"></a> <a
+					href="all_products.html"><img
+					src="img/icon/categories/Whey_Hotbar.png"></a> <a
+					href="all_products.html"><img
+					src="img/icon/categories/Shake_Hotbar.png"></a>
+			</div>
+
+			<div class="delimiter-all">
+				<a th:each="product : ${products}" class="product-delimiter"
+					th:href="@{'/productInfo?id=' + ${product.id}}"> <img
+					th:src="'../img/img-uploads/' + ${product.img}" class="product-img">
+					<p>
+						<span th:text="${product.title}" class="product-name"></span>
+					</p>
+					<p class="price">
+						R$ <span th:text="${product.price}" class="product-price"></span>
+					</p>
+				</a>
+			</div>
+
+		</section>
+	</section>
+	</main>
+</body>
+</html>

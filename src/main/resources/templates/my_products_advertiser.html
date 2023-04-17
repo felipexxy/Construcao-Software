@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Products - A&G</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header_advertiser.css">
+    <link rel="stylesheet" href="css/my_products_advertiser.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="img/icon/logo_white.png">
+        <input type="text" placeholder="Search ...">
+        <div class="user">
+            <img class="user_icon" src="img/icon/notification.png">
+            <img class="user_icon" src="img/icon/user_white.png">
+            <p id="welcome_user">Welcome,<br><span sec:authentication="principal.username">User</span></p>
+        </div>
+    </header>
+    <img class="marcation" src="img/icon/marcation.png">
+    <main>
+        <section class="navegation">
+            <div class=home>
+                <img src="img/icon/dashboard.png">
+                <a th:href="@{/advertiser}">Home</a>
+            </div>
+            <div class="my_sales">
+                <img src="img/icon/products.png">
+                <a href="my_sales.html">My Sales</a>
+            </div>
+            <div class="my_products">
+                <img src="img/icon/products.png">
+                <a th:href="@{/myProducts}">My Products</a>
+            </div>
+        </section>
+        <div class="settings">
+            <img src="img/icon/settings.png">
+            <a th:href="@{/settings}">Settings</a>
+        </div>
+        <div class="bg_delimiter">
+            <h1 class="my">My Products</h1>
+            <div class="group">
+                <a class="button"><img src="img/icon/Vector.png"> Filter</a>
+                <a class="button"><img src="img/icon/Arrow up.png">Export</a>
+                <form th:action="@{/createSale}">
+                    <button type="submit">+ Add Product</button>
+                </form>
+            </div>
+           
+            <p class="in_progress">Advertised Products</p>
+		<div th:if="${param.error}">
+			<div class="error">Error: Edited product had invalid fields!</div>
+		</div>
+		<div class="grid">
+                <div class="table">
+                    <input type="checkbox">
+                    <p class="value">VALUE</p>
+                    <p class="status">STATUS</p>
+                    <p class="name_product">NAME</p>
+                    <p class="name_categorie">CATEGORIE</p>
+                    <p>PUBLISH DATE</p>
+                </div>
+
+                <div th:each="product : ${products}" class="product">
+                    <input type="checkbox">
+                    <p class="price"><span th:text="${product.price}"></span></p>
+                        <img src="img/icon/cellBadge.png"  width="120">
+                    <p class="name"><span th:text="${product.title}"></span></p>
+                    <p class="name"><span th:text="${product.category}"></span></p>
+                    <p class="name"><span th:text="${product.dateAndTime}"></span></p>
+                    <a th:href="@{'/editSale?id=' + ${product.id}}"><img src="img/icon/edit.png"></a>
+                    <a th:href="@{'/deleteProduct?id=' + ${product.id}}"><img src="img/icon/trash.png"></a>
+                </div>
+            </div>
+	
+	</div>
+    </main>
+</body>
+</html>

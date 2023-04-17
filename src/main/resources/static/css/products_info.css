@@ -1,0 +1,148 @@
+.categories{
+    width: 1120px;
+    height: 62px;
+    background: radial-gradient(102.98% 2129.71% at 0% 102.98%, rgba(20, 48, 102, 0.225) 0%, rgba(83, 83, 83, 0.24) 21.88%, rgba(229, 85, 0, 0.135) 99.48%, rgba(229, 85, 0, 0.135) 99.49%);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    box-shadow: -5px 5px 10px rgb(71, 71, 71);
+    margin: 40px auto 20px auto;
+    position: absolute;
+    height: 56px;
+    left: 288px;
+    top: 75px;
+}
+
+.categories a{
+    margin-left: 20px;
+}
+
+button{
+    background-color: rgba(196, 73, 0, 1);
+    width: 239.27px;
+    height: 42.22px;
+    border-radius: 5px;
+    border: solid 2px white;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover{
+    background-color: white;
+    color:#C44900;
+    border: solid 2px #C44900;
+}
+
+.delimiter{
+	width: 900px;
+    height: 550px;
+    position: absolute;
+    top: 195px;
+    left: 287px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.category{
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.product-img{
+	display: flex;
+}
+
+.description{
+	font-size: 18px;
+	font-weight: bold;
+	background-color: rgba(255, 142, 76, 0.9);
+	padding: 5px;
+	width: 105px;
+	border-radius: 5px;
+	margin: 20px 0px;
+}
+
+.product-desc{
+	border: solid 2px white;
+	border-radius: 3px;
+	height: 80px;
+	width: 418px;
+	padding: 10px;
+}
+
+.product-max{
+	width: 326px;
+	height: 302px;
+	background-color: white;
+	border-radius: 3px;
+}
+
+.product-min{
+	width: 90px;
+	height: 90px;
+    background-color: white;
+    border-radius: 3px;
+    margin-right: 20px;
+}
+
+.product-name{
+	font-size: 28px;
+	font-weight: bold;
+	margin-top: 30px;
+}
+
+.product-price{
+	font-size: 28px;
+	font-weight: bold;
+	color: #039900;
+}
+
+.reviews{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 20px 0px;
+}
+
+.reviews p{
+	margin-left: 10px;
+}
+
+.tag-info{
+    color: gray;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.information{
+    font-weight: bold;
+    margin-top: 70px;
+}
+
+.information div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.information div img{
+    margin-right: 20px;
+    width: 17px;
+    height: 17.68px;
+}
+
+
+
+
+

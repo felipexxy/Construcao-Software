@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Sale - A&G</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header_advertiser.css">
+    <link rel="stylesheet" href="css/create_sale.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="img/icon/logo_white.png">
+        <input type="text" placeholder="Search ...">
+        <div class="user">
+            <img class="user_icon" src="img/icon/notification.png">
+            <img class="user_icon" src="img/icon/user_white.png">
+            <p id="welcome_user">Welcome,<br><span sec:authentication="principal.username">User</span></p>
+        </div>
+    </header>
+    <img class="marcation" src="img/icon/marcation.png">
+	<main>
+	<section class="navegation">
+		<div class=home>
+			<img src="img/icon/dashboard.png"> <a th:href="@{/advertiser}">Home</a>
+		</div>
+		<div class="my_sales">
+			<img src="img/icon/products.png"> <a href="my_sales.html">My
+				Sales</a>
+		</div>
+		<div class="my_products">
+			<img src="img/icon/products.png"> <a th:href="@{/myProducts}">My
+				Products</a>
+		</div>
+	</section>
+	<div class="settings">
+		<img src="img/icon/settings.png"> <a th:href="@{/settings}">Settings</a>
+	</div>
+	<div class="bg_delimiter">
+		<div class="tittle">
+			<img src="img/icon/shopping.png">
+			<h1>Edit Product</h1>
+		</div>
+		<form method="post" th:each="product : ${products}" enctype="multipart/form-data">
+			<h2>
+				<span>1</span> Basic Info
+			</h2>
+			<input class="input1" type="text" name="title" th:value="${product.title}"> 
+			<textarea class="input2" type="text" name="description" th:text="${product.description}"></textarea>
+			<div class="delimiter">
+				<div class="space">
+					<h2>Gallery</h2>
+					<input type="file" accept="image/jpeg, image/png" name="file">
+				</div>
+				<div>
+					<h2>Category</h2>
+					<input class="input3" type="text" name="category"  th:value="${product.category}">
+				</div>
+			</div>
+			<h2>
+				<span>2</span> Price Info
+			</h2>
+			<input class="input5" type="text" name="price" th:value="${product.price}">
+			<h2>
+				<span>3</span> Coupon
+			</h2>
+			<input class="input3" type="text" name="coupon"  th:value="${product.coupon}">
+			<button type="submit" class="save">Save</button>
+		</form>
+	</div>
+	</main>
+</body>
+</html>
